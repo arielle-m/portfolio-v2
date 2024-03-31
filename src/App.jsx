@@ -1,22 +1,15 @@
-// import { useState } from 'react'
-import './App.css'
-import "./index.css"
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-// import { HashLink } from 'react-router-hash-link'
-// import { Link } from 'react-router-dom'
-// import { NavLink } from 'react-router-dom'
-// import { GlobalProvider } from "../context/GlobalContext"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { HashLink } from 'react-router-hash-link'
+import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 import PageHome from "./pages/PageHome"
 // import SectionLanding from "./pages/SectionLanding"
 // import SectionProjects from "./pages/SectionProjects"
 // import SectionAbout from "./pages/SectionAbout"
 // import SectionContact from "./pages/SectionContact";
 import PageProject from "./pages/PageProject"
-
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-
 
 
 function App() {
@@ -41,27 +34,16 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
-        {/* <Header /> */}
-          <main>
-            {/* <Route path='/' element={<PageHome restBase />} /> */}
-            {/* <Route path='/' element={<PageProject restBase />} /> */}
-            <h1>Arielle Marin</h1>
-            <p className="card">
-            test text
-            </p>
+      <Router>
+        <Header />
+          <main id="main">
+            <Routes>
+              <Route path="/" element={<PageHome restBase={restBase} />} />
+              {/* <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} />} /> */}
+            </Routes>
           </main>
-        {/* <Footer /> */}
-      {/* </Router> */}
-
-      {/* {restData.map(post => 
-        <article key={post.id} id={`post-${post.id}`}>
-          {post.featured_media !== 0 && post._embedded &&
-            <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
-          }
-
-        </article>
-      )} */}
+        <Footer />
+      </Router>
     </>
   )
 }
