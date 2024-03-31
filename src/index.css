@@ -59,6 +59,38 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
+.menu-toggle {
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+}
+.menu-toggle:focus {
+  border: 0;
+  outline: 0.125rem solid pink;
+}
+.menu-toggle svg path {
+  stroke: orange;
+  stroke-width: 0.25rem;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: right center;
+  transition: opacity 200ms ease, width 200ms ease, rotate 200ms ease, translate 200ms ease;
+}
+
+.site-navigation.toggled .menu-toggle svg path:first-of-type {
+  rotate: -45deg;
+  translate: 0.1rem -0.21rem;
+} 
+.site-navigation.toggled .menu-toggle svg path:last-of-type {
+  rotate: 45deg;
+  translate: 0.1rem 0.24rem;
+}
+.site-navigation.toggled .menu-toggle svg path:nth-of-type(2) {
+  opacity: 0;
+  width: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
