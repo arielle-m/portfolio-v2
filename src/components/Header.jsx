@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
+import { NavHashLink } from 'react-router-hash-link'
 
 export default function Header() {
     const [menuToggle, setMenuToggle]= useState(false)
@@ -37,9 +38,9 @@ export default function Header() {
                     <ul>
                     {/* <ul className="nav-menu" id="header-menu"> */}
                         <li><NavLink to='/' end>Home</NavLink></li>
-                        <li><HashLink to='#projects'>Projects</HashLink></li>
-                        <li><HashLink to='#about'>About</HashLink></li>
-                        <li><HashLink to='#contact'>Contact</HashLink></li>
+                        <li><NavHashLink to='#projects'>Projects</NavHashLink></li>
+                        <li><NavHashLink to='#about'>About</NavHashLink></li>
+                        <li><NavHashLink to='#contact'>Contact</NavHashLink></li>
                     </ul>
                 </nav>
             </nav>
