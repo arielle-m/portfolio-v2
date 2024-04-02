@@ -38,9 +38,9 @@ export default function Header() {
                     <ul>
                     {/* <ul className="nav-menu" id="header-menu"> */}
                         <li><NavLink to='/' end>Home</NavLink></li>
-                        <li><NavHashLink smooth to='#projects'>Projects</NavHashLink></li>
-                        <li><NavHashLink smooth to='#about'>About</NavHashLink></li>
-                        <li><NavHashLink smooth to='#contact'>Contact</NavHashLink></li>
+                        <li><NavHashLink smooth to='/#projects'>Projects</NavHashLink></li>
+                        <li><NavHashLink smooth to='/#about'>About</NavHashLink></li>
+                        <li><NavHashLink smooth to='/#contact'>Contact</NavHashLink></li>
                     </ul>
                 </nav>
             </nav>
