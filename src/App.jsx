@@ -28,6 +28,38 @@ function App() {
     return {__html: img}
   }
 
+  const dropdownImage = ( dropdownImageObject ) => {
+    let imgWidth = dropdownImageObject.width;
+    let imgHeight = dropdownImageObject.height;
+    let imgURL = dropdownImageObject.url;
+    let img = `<img src="${imgURL}" 
+        width="${imgWidth}"
+        height="${imgHeight}"
+        alt="${dropdownImageObject.alt}"
+        srcset="${imgURL} ${imgWidth}w,
+        ${dropdownImageObject.sizes?.large ? dropdownImageObject.sizes.large + ' 1024w,' : ''}
+        ${dropdownImageObject.sizes?.medium_large ? dropdownImageObject.sizes.medium_large + ' 768w,' : ''}
+        ${dropdownImageObject.sizes?.medium ? dropdownImageObject.sizes.medium + ' 300w' : ''}"
+        sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
+    return {__html: img}
+  }
+
+  // const dropdownImage = ( dropdownImageObject ) => {
+  //   let imgWidth = dropdownImageObject.width;
+  //   let imgHeight = dropdownImageObject.height;
+  //   let imgURL = dropdownImageObject.url;
+  //   let img = `<img src="${imgURL}" 
+  //       width="${imgWidth}"
+  //       height="${imgHeight}"
+  //       alt="${dropdownImageObject.alt}"
+  //       srcset="${imgURL} ${imgWidth}w,
+  //       ${dropdownImageObject.sizes?.large + ' 1024w,'}
+  //       ${dropdownImageObject.sizes?.medium_large + ' 768w,'}
+  //       ${dropdownImageObject.sizes?.medium + ' 300w'}"
+  //       sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
+  //   return {__html: img}
+  // }
+
   return (
     <>
       <Router>
@@ -35,7 +67,7 @@ function App() {
           <main id="main">
             <Routes>
               <Route path="/" element={<PageHome restBase={restBase} />} />
-              <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} />} />
+              <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} dropdownImage={dropdownImage} />} />
             </Routes>
           </main>
         <Footer />
