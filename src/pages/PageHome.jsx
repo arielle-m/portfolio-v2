@@ -1,26 +1,35 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 
-// export default function PageHome( {restBase} ) {
-const PageHome = ( {restBase} ) => {
-// export default function PageHome() {
+// export default function PageHome( {restBase, fieldImage} ) {
+const PageHome = ( {restBase, fieldImage} ) => {
     const restPath = restBase + 'pages/2'
+    const restPathSkillCategory = restBase + 'skill-category?orderby=name&order=desc'
+    const restPathSkill = restBase + 'skill?orderby=title&order=asc'
     const [restData, setData] = useState([])
+    const [restDataSkillCategory, setDataSkillCategory] = useState([])
+    const [restDataSkill, setDataSkill] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(restPath)
-            if ( response.ok ) {
+            const response_skill_category = await fetch(restPathSkillCategory)
+            const response_skill = await fetch(restPathSkill)
+            if ( response.ok && response_skill.ok ) {
                 const data = await response.json()
+                const dataSkillCategory = await response_skill_category.json()
+                const dataSkill = await response_skill.json()
                 setData(data)
+                setDataSkillCategory(dataSkillCategory)
+                setDataSkill(dataSkill)
                 setLoadStatus(true)
             } else {
                 setLoadStatus(false)
             }
         }
         fetchData()
-    }, [restPath])
+    }, [restPath, restPathSkill])
     
     return (
       <>
@@ -36,12 +45,29 @@ const PageHome = ( {restBase} ) => {
                 </section>
                 <section id="about">
                     <h2>{restData.acf.about_header}</h2>
-                    <p>{restData.acf.about_paragraph}</p>
-                    <p dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></p>
+                        {restData.acf.about_image &&
+                        <figure className="about-image" dangerouslySetInnerHTML={fieldImage(restData.acf.about_image)} loading="lazy"></figure>
+                        }
+                        <p>{restData.acf.about_paragraph}</p>
+                        <p dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></p>
+                    <h3>{restData.acf.skills_header}</h3>
+                        {restDataSkillCategory.map (skillcategory =>
+                            <article key={skillcategory.id} id={`tax-${skillcategory.id}`}>
+                                <h4>{skillcategory.name}</h4>
+                                <ul>
+                                {restDataSkill.map ( skill =>
+                                    {skillcategory.id === skill.skill-category[0] && 
+                                        <li key={skill.id} id={`post-${skill.id}`}>{skill.title.rendered}</li>
+                                    }
+                                )}
+                                </ul>
+                            </article>
+                        )}
                 </section>
                 <section id="contact">
                     <h2>{restData.acf.contact_header}</h2>
                     <p>{restData.acf.contact_paragraph}</p>
+                    <Link to={restData.acf.contact_button.url} target={link.project_link.target}>{restData.acf.contact_button.title}</Link>
                 </section>
             </article>
         : 
