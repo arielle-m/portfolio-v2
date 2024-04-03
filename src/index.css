@@ -1,14 +1,25 @@
+@charset "utf-8";
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* colors */
+  --light1: #fffaf4;
+  --light2: #ffecd4;
+  --dark1: #242424;
+  --dark2: #4a2d11;
+  --primary: #ffb119;
+  --secondary: #f68500;
+  --accent: #ffd27a;
+
+  font-family: Nunito, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: light /* dark */;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -18,26 +29,48 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--light1);
+  color: var(--dark1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Fredoka, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: var(--dark2);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 4rem;
+  /* line-height: 1.1; */
+}
+
+h1 strong {
+  /* color: var(--light1); */
+  /* -webkit-text-fill-color: #fffaf4; */
+  /* -webkit-text-stroke: 0.125rem #4a2d11; */
+  /* text-shadow:
+    0.1875rem 0.1875rem 0 var(--dark2),
+    -0.1875rem 0.1875rem 0 var(--dark2),
+    -0.1875rem -0.1875rem 0 var(--dark2),
+    0.1875rem -0.1875rem 0 var(--dark2),
+    0rem -0.25rem 0 var(--dark2),
+    0rem 0.1875rem 0 var(--dark2),
+    -0.1875rem 0rem 0 var(--dark2),
+    0.1875rem 0rem 0 var(--dark2); */
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 2rem;
 }
 
 button {
@@ -57,6 +90,16 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+a {
+  font-weight: 500;
+  color: #804400;
+  text-decoration: revert;
+}
+a:hover {
+  color: #e07900;
 }
 
 
@@ -91,7 +134,7 @@ button:focus-visible {
   width: 0;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -102,4 +145,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
