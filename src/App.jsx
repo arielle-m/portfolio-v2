@@ -50,7 +50,7 @@ function App() {
         <Header />
           <main id="main">
             <Routes>
-              <Route path="/" element={<PageHome restBase={restBase} fieldImage={fieldImage}/>} />
+              <Route path="/" element={<PageHome restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage}/>} />
               <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
             </Routes>
           </main>
