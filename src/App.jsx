@@ -28,37 +28,21 @@ function App() {
     return {__html: img}
   }
 
-  const dropdownImage = ( dropdownImageObject ) => {
-    let imgWidth = dropdownImageObject.width;
-    let imgHeight = dropdownImageObject.height;
-    let imgURL = dropdownImageObject.url;
+  const fieldImage = ( fieldImageObject ) => {
+    let imgWidth = fieldImageObject.width;
+    let imgHeight = fieldImageObject.height;
+    let imgURL = fieldImageObject.url;
     let img = `<img src="${imgURL}" 
         width="${imgWidth}"
         height="${imgHeight}"
-        alt="${dropdownImageObject.alt}"
+        alt="${fieldImageObject.alt}"
         srcset="${imgURL} ${imgWidth}w,
-        ${dropdownImageObject.sizes?.large ? dropdownImageObject.sizes.large + ' 1024w,' : ''}
-        ${dropdownImageObject.sizes?.medium_large ? dropdownImageObject.sizes.medium_large + ' 768w,' : ''}
-        ${dropdownImageObject.sizes?.medium ? dropdownImageObject.sizes.medium + ' 300w' : ''}"
+        ${fieldImageObject.sizes?.large ? fieldImageObject.sizes.large + ' 1024w,' : ''}
+        ${fieldImageObject.sizes?.medium_large ? fieldImageObject.sizes.medium_large + ' 768w,' : ''}
+        ${fieldImageObject.sizes?.medium ? fieldImageObject.sizes.medium + ' 300w' : ''}"
         sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
     return {__html: img}
   }
-
-  // const dropdownImage = ( dropdownImageObject ) => {
-  //   let imgWidth = dropdownImageObject.width;
-  //   let imgHeight = dropdownImageObject.height;
-  //   let imgURL = dropdownImageObject.url;
-  //   let img = `<img src="${imgURL}" 
-  //       width="${imgWidth}"
-  //       height="${imgHeight}"
-  //       alt="${dropdownImageObject.alt}"
-  //       srcset="${imgURL} ${imgWidth}w,
-  //       ${dropdownImageObject.sizes?.large + ' 1024w,'}
-  //       ${dropdownImageObject.sizes?.medium_large + ' 768w,'}
-  //       ${dropdownImageObject.sizes?.medium + ' 300w'}"
-  //       sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
-  //   return {__html: img}
-  // }
 
   return (
     <>
@@ -66,8 +50,8 @@ function App() {
         <Header />
           <main id="main">
             <Routes>
-              <Route path="/" element={<PageHome restBase={restBase} />} />
-              <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} dropdownImage={dropdownImage} />} />
+              <Route path="/" element={<PageHome restBase={restBase} fieldImage={fieldImage}/>} />
+              <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
             </Routes>
           </main>
         <Footer />

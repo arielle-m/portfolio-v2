@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 
-export default function PageProject( {restBase, featuredImage, dropdownImage} ) {
+export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const { slug } = useParams()
   const restPath = restBase + `posts?_embed&acf_format=standard&slug=${slug}`
   const [restData, setData] = useState([])
@@ -64,7 +64,7 @@ export default function PageProject( {restBase, featuredImage, dropdownImage} ) 
                 {dropdown.dropdown_content.map( content =>
                   <div>
                     {content.content_image &&
-                      <figure className="dropdown-image" dangerouslySetInnerHTML={dropdownImage(content.content_image)} loading="lazy"></figure>
+                      <figure className="dropdown-image" dangerouslySetInnerHTML={fieldImage(content.content_image)} loading="lazy"></figure>
                     }
                     <div dangerouslySetInnerHTML={{__html:content.content_paragraph}}></div>
                   </div>
