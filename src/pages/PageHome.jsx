@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 // export default function PageHome( {restBase, fieldImage} ) {
 const PageHome = ( {restBase, fieldImage} ) => {
-    const restPath = restBase + 'pages/2'
+    const restPath = restBase + 'pages/2?_embed&acf_format=standard'
     const restPathSkillDevelopment = restBase + 'skill?_embed&orderby=title&order=asc&per_page=50&skill-category=23'
     const restPathSkillDesign = restBase + 'skill?_embed&orderby=title&order=asc&per_page=50&skill-category=22'
     const [restData, setData] = useState([])
@@ -43,6 +43,18 @@ const PageHome = ( {restBase, fieldImage} ) => {
                 </section>
                 <section id="projects">
                     <h2>{restData.acf.projects_header}</h2>
+                    {restData.acf.featured_projects.map ( project =>
+                        <article key={project.id} id={`post-${project.id}`}>
+                            <Link to={`/project/${project.post_name}`}>
+                                <h3>{project.post_title}</h3>
+                                {project.}
+
+                                {restData.featured_media !== 0 && restData._embedded &&
+                                    <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+                                }
+                            </Link>
+                        </article>
+                    )}
                 </section>
                 <section id="about">
                     <h2>{restData.acf.about_header}</h2>
