@@ -45,7 +45,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="max-w-screen-lg flex flex-col mx-auto my-0">
       <Router>
         <Header />
           <main id="main">
@@ -56,7 +56,7 @@ function App() {
           </main>
         <Footer />
       </Router>
-    </>
+    </div>
   )
 }
 
