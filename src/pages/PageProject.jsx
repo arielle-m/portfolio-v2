@@ -79,20 +79,6 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               </details>
             )}
           </section>
-          <section>
-            {restDataProjects.map( project => 
-              {post_id !== project.id &&
-                <article key={project.id} id={`post-${project.id}`}>
-                  <Link to={`/project/${project.slug}`}>
-                    <h3>{project.title.rendered}</h3>
-                    {project.featured_media !== 0 && project._embedded &&
-                      <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
-                    }
-                  </Link>
-                </article>
-              }
-            )}
-          </section>
         </article>
       : 
         <Loading /> 
