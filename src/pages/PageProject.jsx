@@ -6,22 +6,29 @@ import Loading from '../components/Loading'
 export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const { slug } = useParams()
   const restPath = restBase + `posts?_embed&acf_format=standard&slug=${slug}`
+  const restPathProjects = restBase + 'posts?_embed'
   const [restData, setData] = useState([])
+  const [restDataProjects, setDataProjects] = useState([])
   const [isLoaded, setLoadStatus] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(restPath)
-      if ( response.ok ) {
+      const response_projects = await fetch(restPathProjects)
+      if ( response.ok && response_projects.ok ) {
         const data = await response.json()
+        const dataProjects = await response_projects.json()
         setData(data[0])
+        setDataProjects(dataProjects)
         setLoadStatus(true)
       } else {
         setLoadStatus(false)
       }
     }
     fetchData()
-  }, [restPath])
+  }, [restPath, restPathProjects])
+
+  const post_id = restData.id
 
   return (
     <>
@@ -70,6 +77,20 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                   </div>
                 )}
               </details>
+            )}
+          </section>
+          <section>
+            {restDataProjects.map( project => 
+              {post_id !== project.id &&
+                <article key={project.id} id={`post-${project.id}`}>
+                  <Link to={`/project/${project.slug}`}>
+                    <h3>{project.title.rendered}</h3>
+                    {project.featured_media !== 0 && project._embedded &&
+                      <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                    }
+                  </Link>
+                </article>
+              }
             )}
           </section>
         </article>
