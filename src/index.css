@@ -15,7 +15,7 @@
   --accent: #ffd27a;
 
   font-family: Nunito, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
 
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 4rem;
-  /* line-height: 1.1; */
+  line-height: 1.2;
 }
 
 h1 strong {
@@ -84,16 +84,13 @@ p {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 1rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
@@ -114,17 +111,8 @@ a:hover {
   
 }
 
-.menu-toggle {
-  display: inline-block;
-  background-color: transparent;
-  border: 0;
-}
-.menu-toggle:focus {
-  border: 0;
-  outline: 0.125rem solid pink;
-}
 .menu-toggle svg path {
-  stroke: orange;
+  stroke: #fb923c;
   stroke-width: 0.25rem;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -134,9 +122,29 @@ a:hover {
 
 .site-navigation.toggled .menu-toggle svg path:first-of-type {
   rotate: -135deg;
-} 
+}
 .site-navigation.toggled .menu-toggle svg path:last-of-type {
   rotate: -135deg;
+}
+
+.site-navigation #header-menu {
+  height: 100%;
+  width: 0;
+  top: 0;
+  right: -4rem;
+  position: fixed;
+  padding: 2rem;
+  overflow-x: hidden;
+  transition: 200ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 2rem;
+}
+
+.site-navigation.toggled #header-menu {
+  width: 100%;
+  right: 0;
 }
 
 /* @media (prefers-color-scheme: dark) {

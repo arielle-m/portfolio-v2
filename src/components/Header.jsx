@@ -14,15 +14,15 @@ export default function Header() {
     }
 
     return (
-        <header id="masthead" className="site-header">
+        <header id="masthead" className="site-header p-4">
             <div className="site-branding">
-                <Link to="/" className="site-logo no-underline">
-                    <p className="site-title">Arielle Marin</p>
+                <Link to="/" className="site-logo no-underline text-orange-700 uppercase tracking-widest">
+                    <p className="site-title m-0">Arielle Marin</p>
                 </Link>
             </div>
   
             <nav className={menuToggle ? "site-navigation toggled" : "site-navigation"} id="site-navigation">
-                <button className="menu-toggle" aria-controls="header-menu" aria-expanded={menuToggle ? "true" : "false"} aria-label="Menu Toggle" onClick={() => menuHandle()}>
+                <button className="menu-toggle inline-block bg-transparent border-4 border-orange-400 rounded-full p-2 focus:outline focus:outline-2 focus:outline-orange-400 fixed right-4 bottom-4 z-50" aria-controls="header-menu" aria-expanded={menuToggle ? "true" : "false"} aria-label="Menu Toggle" onClick={() => menuHandle()}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
                     <title>Menu icon</title>
                     <path d="M2 12h20"></path>
@@ -31,12 +31,12 @@ export default function Header() {
                 </button>
 
                 <nav className="site-navigation">
-                    <ul>
+                    <ul id="header-menu" className="bg-orange-700 z-40">
                     {/* <ul className="nav-menu" id="header-menu"> */}
-                        <li><NavLink to='/' end>Home</NavLink></li>
-                        <li><NavHashLink smooth to='/#projects'>Projects</NavHashLink></li>
-                        <li><NavHashLink smooth to='/#about'>About</NavHashLink></li>
-                        <li><NavHashLink smooth to='/#contact'>Contact</NavHashLink></li>
+                        <li><NavHashLink to='/#' smooth end onClick={() => menuHandle()} className="no-underline uppercase font-bold tracking-widest text-right text-orange-100 text-3xl hover:text-orange-300">Home</NavHashLink></li>
+                        <li><NavHashLink smooth to='/#projects' onClick={() => menuHandle()} className="no-underline uppercase font-bold tracking-widest text-right text-orange-100 text-3xl hover:text-orange-300">Projects</NavHashLink></li>
+                        <li><NavHashLink smooth to='/#about' onClick={() => menuHandle()} className="no-underline uppercase font-bold tracking-widest text-right text-orange-100 text-3xl hover:text-orange-300">About</NavHashLink></li>
+                        <li><NavHashLink smooth to='/#contact' onClick={() => menuHandle()} className="no-underline uppercase font-bold tracking-widest text-right text-orange-100 text-3xl hover:text-orange-300">Contact</NavHashLink></li>
                     </ul>
                 </nav>
             </nav>
