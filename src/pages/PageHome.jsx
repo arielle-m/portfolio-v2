@@ -50,11 +50,11 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
                     <h2 className="uppercase font-semibold tracking-wider">{restData.acf.projects_header}</h2>
                     {restDataProjects.map( project => 
                         <article key={project.id} id={`post-${project.id}`}>
-                            <Link to={`/project/${project.slug}`}>
+                            <Link to={`/project/${project.slug}`} className="relative inline-block">
                                 {project.featured_media !== 0 && project._embedded &&
-                                    <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                                    <figure className="featured-image block w-full h-auto shadow-md shadow-orange-300 hover:shadow-lg hover:shadow-orange-400" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
                                 }
-                                <h3>{project.title.rendered}</h3>
+                                <h3 className="text-orange-100 bg-orange-700 inline-block absolute top-1/3 left-1/4 z-30 -translate-x-1/2 -translate-y-1/2 text-center h-max w-max px-9 py-2 rounded-full">{project.title.rendered}</h3>
                             </Link>
                         </article>
                     )}
