@@ -44,7 +44,7 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
                 <section id="#">
                     <h1>{restData.acf.greeting} <strong>{restData.acf.name}</strong></h1>
                     <h2>{restData.acf.occupation}</h2>
-                    <p>{restData.acf.landing_paragraph}</p>
+                    <div dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
                 </section>
                 <section id="projects">
                     <h2>{restData.acf.projects_header}</h2>
@@ -58,36 +58,14 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
                             </Link>
                         </article>
                     )}
-                    {/* {restData.acf.featured_projects.map ( project =>
-                        <article key={project.id} id={`post-${project.id}`}>
-                            <Link to={`/project/${project.post_name}`}>
-                                <h3>{project.post_title}</h3>
-                                {project.}
-
-                                { restData._embedded &&
-                                    <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
-                                }
-                            </Link>
-                        </article>
-                    )} */}
-                    {/* { restData._embedded && restData._embedded['acf:post'].map ( project =>
-                        <article key={project.id} id={`post-${project.id}`}>
-                            <Link to={`/project/${project.slug}`}>
-                                <h3>{project.title.rendered}</h3>
-                                {project.featured_media !== 0 &&
-                                    <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
-                                }
-                            </Link>
-                        </article>
-                    )} */}
                 </section>
                 <section id="about">
                     <h2>{restData.acf.about_header}</h2>
                         {restData.acf.about_image &&
                         <figure className="about-image" dangerouslySetInnerHTML={fieldImage(restData.acf.about_image)} loading="lazy"></figure>
                         }
-                        <p>{restData.acf.about_paragraph}</p>
-                        <p dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></p>
+                        <div dangerouslySetInnerHTML={{__html: restData.acf.about_paragraph}}></div>
+                        <div dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></div>
                     <h3>{restData.acf.skills_header}</h3>
                         <h4>{restDataSkillDevelopment[0]._embedded['wp:term'][0][0].name}</h4>
                         <ul>
@@ -104,7 +82,7 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
                 </section>
                 <section id="contact">
                     <h2>{restData.acf.contact_header}</h2>
-                    <p>{restData.acf.contact_paragraph}</p>
+                    <div dangerouslySetInnerHTML={{__html: restData.acf.contact_paragraph}}></div>
                     <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target}>{restData.acf.contact_button.title}</Link>
                 </section>
             </article>
