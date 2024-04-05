@@ -16,11 +16,8 @@ export default function Header() {
     return (
         <header id="masthead" className="site-header">
             <div className="site-branding">
-                <Link to="/" className="site-logo">
+                <Link to="/" className="site-logo no-underline">
                     <p className="site-title">Arielle Marin</p>
-                    {/* <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 512 512">
-                    <path d="M256.742 37C407.512 37 501.293 355.711 501.293 355.711C531.717 408.289 493.682 474 432.826 474H79.1676C18.3185 474 -19.717 408.289 10.7069 355.711C10.7069 355.711 91.2167 37 256.742 37Z"></path>
-                    </svg> */}
                 </Link>
             </div>
   
@@ -28,9 +25,8 @@ export default function Header() {
                 <button className="menu-toggle" aria-controls="header-menu" aria-expanded={menuToggle ? "true" : "false"} aria-label="Menu Toggle" onClick={() => menuHandle()}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
                     <title>Menu icon</title>
-                    <path d="M2 5h20"></path>
                     <path d="M2 12h20"></path>
-                    <path d="M2 19h20"></path>
+                    <path d="M12 2v20"></path>
                 </svg>
                 </button>
 
