@@ -28,8 +28,6 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
     fetchData()
   }, [restPath, restPathProjects])
 
-  const post_id = restData.id
-
   return (
     <>
       { isLoaded ?
@@ -39,24 +37,24 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
             <h1>{restData.title.rendered}</h1>
-            <div>
-              <table>
-                <thead>
-                  <tr>
+            <div className="md:flex md:justify-center">
+              <table className="border-collapse flex">
+                <thead className="flex flex-col text-right">
+                  <tr className="inline-flex flex-col pr-2 py-1">
                     <th>Role</th>
                     <th>Tools</th>
                     <th>Team Size</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr className="inline-flex flex-col text-left pl-2 py-1">
                     <td>{restData.acf.project_info.role}</td>
                     <td>{restData.acf.project_info.skills}</td>
                     <td>{restData.acf.project_info.team_size}</td>
                   </tr>
                 </tbody>
               </table>
-              <div>
+              <div className="md:w-11/12">
                 <p>{restData.acf.project_overview}</p>
                 {restData.acf.project_links.map( link =>
                   <Link to={{ pathname:  `${link.project_link.url}` }} target={link.project_link.target}>{link.project_link.title}</Link>
