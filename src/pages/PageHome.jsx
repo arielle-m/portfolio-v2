@@ -41,13 +41,13 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
       <>
         { isLoaded ?
             <article id={`page-${restData.id}`}>
-                <section id="#">
-                    <h1>{restData.acf.greeting} <strong>{restData.acf.name}</strong></h1>
-                    <h2>{restData.acf.occupation}</h2>
-                    <div dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
+                <section id="#" className="max-h-96 flex flex-col justify-start mb-24">
+                    <h1 className="uppercase font-semibold text-4xl tracking-wider mb-2 mt-4">{restData.acf.greeting} <br /><strong className="text-6xl">{restData.acf.name}</strong></h1>
+                    <h2 className="font-semibold text-2xl uppercase leading-7 tracking-widest my-2">{restData.acf.occupation}</h2>
+                    <div className="mt-2" dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
                 </section>
                 <section id="projects">
-                    <h2>{restData.acf.projects_header}</h2>
+                    <h2 className="uppercase font-semibold tracking-wider">{restData.acf.projects_header}</h2>
                     {restDataProjects.map( project => 
                         <article key={project.id} id={`post-${project.id}`}>
                             <Link to={`/project/${project.slug}`}>
