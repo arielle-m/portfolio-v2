@@ -70,11 +70,15 @@ h1 strong {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.25rem;
 }
 
 p {
