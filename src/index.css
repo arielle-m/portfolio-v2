@@ -116,7 +116,7 @@ a:hover {
 }
 
 .menu-toggle svg path {
-  stroke: #fb923c;
+  stroke: var(--light1);
   stroke-width: 0.25rem;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -149,6 +149,14 @@ a:hover {
 .site-navigation.toggled #header-menu {
   width: 100%;
   right: 0;
+}
+
+.project-card:hover figure {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.project-card:hover h3 {
+  background-color: #ea580c;
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -22,7 +22,7 @@ export default function Header() {
             </div>
   
             <nav className={menuToggle ? "site-navigation toggled" : "site-navigation"} id="site-navigation">
-                <button className="menu-toggle inline-block bg-transparent border-4 border-orange-400 rounded-full p-2 focus:outline focus:outline-2 focus:outline-orange-400 fixed right-4 bottom-4 z-50" aria-controls="header-menu" aria-expanded={menuToggle ? "true" : "false"} aria-label="Menu Toggle" onClick={() => menuHandle()}>
+                <button className="menu-toggle inline-block bg-orange-400 border-4 border-orange-400 rounded-full p-2 focus:outline focus:outline-2 focus:outline-orange-400 fixed right-4 bottom-4 z-50" aria-controls="header-menu" aria-expanded={menuToggle ? "true" : "false"} aria-label="Menu Toggle" onClick={() => menuHandle()}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
                     <title>Menu icon</title>
                     <path d="M2 12h20"></path>
