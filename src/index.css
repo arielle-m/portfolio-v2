@@ -151,12 +151,34 @@ a:hover {
   right: 0;
 }
 
-.project-card:hover figure {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+.project-card a,
+.contact-button {
+  transition: 300ms ease;
 }
 
-.project-card:hover h3 {
-  background-color: #ea580c;
+.project-card a:hover,
+.contact-button:hover {
+  box-shadow: 0 10px 15px -3px #c2410c50, 0 4px 6px -4px #c2410c50;
+}
+
+a.contact-button,
+a.contact-button:hover {
+  color: var(--dark2);
+}
+
+.project-card a:hover h3 {
+  color: #c2410c;
+}
+
+.project-card a figure {
+  transition: bottom 400ms ease, right 400ms ease, filter 300ms ease;
+  filter: sepia(80%);
+}
+
+.project-card a:hover figure {
+  right: -1rem;
+  bottom: -2.25rem;
+  filter: sepia(0%);
 }
 
 /* @media (prefers-color-scheme: dark) {
