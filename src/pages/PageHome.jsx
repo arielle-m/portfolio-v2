@@ -43,13 +43,14 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
             <article id={`page-${restData.id}`}>
                 <section id="#" className="max-h-96 flex flex-col justify-start mb-24">
                     <h1 className="uppercase font-semibold text-4xl tracking-wider mb-2 mt-6">{restData.acf.greeting} <br /><strong className="text-6xl">{restData.acf.name}</strong></h1>
-                    <h2 className="font-semibold text-2xl uppercase leading-7 tracking-widest my-2">{restData.acf.occupation}</h2>
-                    <div className="mt-2" dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
+                    <h2 className="font-semibold text-2xl uppercase leading-7 tracking-widest my-2 max-w-md">{restData.acf.occupation}</h2>
+                    <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
                 </section>
                 <section id="projects">
                     <h2 className="uppercase font-semibold tracking-wider">{restData.acf.projects_header}</h2>
+                    <div className="projects md:flex md:flex-wrap md:gap-x-4">
                     {restDataProjects.map( project => 
-                        <article key={project.id} id={`post-${project.id}`} className="project-card h-36 mb-4">
+                        <article key={project.id} id={`post-${project.id}`} className="project-card h-36 max-w-lg md:max-w-md mb-4 mt-0 mx-auto">
                             <Link to={`/project/${project.slug}`} className="relative inline-block
                             bg-orange-200 rounded-2xl p-4 overflow-hidden h-full w-full">
                                 {project.featured_media !== 0 && project._embedded &&
@@ -64,27 +65,34 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
                             </Link>
                         </article>
                     )}
+                    </div>
                 </section>
                 <section id="about" className="py-8">
                     <h2 className="uppercase font-semibold tracking-wider">{restData.acf.about_header}</h2>
-                        {restData.acf.about_image &&
-                            <figure className="about-image rounded-2xl h-9/12 w-9/12 overflow-hidden mb-4 mt-0 mx-auto" dangerouslySetInnerHTML={fieldImage(restData.acf.about_image)} loading="lazy"></figure>
-                        }
-                        <div dangerouslySetInnerHTML={{__html: restData.acf.about_paragraph}}></div>
-                        <div dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></div>
-                    <h3>{restData.acf.skills_header}</h3>
-                        <h4 className="uppercase font-bold tracking-wider mt-2">{restDataSkillDevelopment[0]._embedded['wp:term'][0][0].name}</h4>
-                        <ul>
-                        {restDataSkillDevelopment.map (skilldevelopment =>
-                            <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-700 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.title.rendered}</li>
-                        )}
-                        </ul>
-                        <h4 className="uppercase font-bold tracking-wider mt-2">{restDataSkillDesign[0]._embedded['wp:term'][0][0].name}</h4>
-                        <ul>
-                        {restDataSkillDesign.map (skilldesign =>
-                            <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-700 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.title.rendered}</li>
-                        )}
-                        </ul>
+                        <div className="md:flex md:gap-4">
+                            {restData.acf.about_image &&
+                                <figure className="about-image rounded-2xl max-h-80 w-9/12 overflow-hidden mb-4 mt-0 mx-auto md:w-full md:max-h-none md:h-full" dangerouslySetInnerHTML={fieldImage(restData.acf.about_image)} loading="lazy"></figure>
+                            }
+                            <div className="md:w-full">
+                                <div dangerouslySetInnerHTML={{__html: restData.acf.about_paragraph}}></div>
+                                <div dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></div>
+                            </div>
+                        </div>
+                    <article className="skills">
+                        <h3>{restData.acf.skills_header}</h3>
+                            <h4 className="uppercase font-bold tracking-wider mt-2">{restDataSkillDevelopment[0]._embedded['wp:term'][0][0].name}</h4>
+                            <ul>
+                            {restDataSkillDevelopment.map (skilldevelopment =>
+                                <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-700 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.title.rendered}</li>
+                            )}
+                            </ul>
+                            <h4 className="uppercase font-bold tracking-wider mt-2">{restDataSkillDesign[0]._embedded['wp:term'][0][0].name}</h4>
+                            <ul>
+                            {restDataSkillDesign.map (skilldesign =>
+                                <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-700 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.title.rendered}</li>
+                            )}
+                            </ul>
+                    </article>
                 </section>
                 <section id="contact" className="py-8">
                     <h2 className="uppercase font-semibold tracking-wider">{restData.acf.contact_header}</h2>
