@@ -1,7 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { HashLink } from 'react-router-hash-link'
-import { Link } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import PageHome from "./pages/PageHome"
