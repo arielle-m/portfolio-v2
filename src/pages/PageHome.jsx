@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom'
 
-// export default function PageHome( {restBase, featuredImage, fieldImage} ) {
-const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
+export default function PageHome( {restBase, featuredImage, fieldImage} ) {
     const restPath = restBase + 'pages/2?_embed&acf_format=standard'
     const restPathProjects = restBase + 'posts?_embed'
     const restPathSkillDevelopment = restBase + 'skill?_embed&orderby=title&order=asc&per_page=50&skill-category=23'
@@ -55,13 +54,9 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
                             bg-orange-200 rounded-2xl p-4 overflow-hidden h-full w-full">
                                 {project.featured_media !== 0 && project._embedded &&
                                     <figure 
-                                    className="featured-image relative -right-5 -bottom-11 max-h-32"
-                                    // className="featured-image block w-full h-auto shadow-md shadow-orange-300 hover:shadow-orange-400" 
-                                    dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                                    className="featured-image relative -right-5 -bottom-11 max-h-32 overflow-hidden rounded-2xl" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
                                 }
-                                <h3 className="absolute z-30 top-4"
-                                // className="text-orange-100 bg-orange-700 inline-block relative left-1/2 z-30 origin-top-left -translate-x-1/2 -translate-y-1/2 h-max w-max px-8 py-2 rounded-full"
-                                >{project.title.rendered}</h3>
+                                <h3 className="absolute z-30 top-4">{project.title.rendered}</h3>
                             </Link>
                         </article>
                     )}
@@ -107,5 +102,3 @@ const PageHome = ( {restBase, featuredImage, fieldImage} ) => {
       </>
     );
   }
-  
-export default PageHome
