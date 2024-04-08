@@ -54,21 +54,6 @@ h1 {
   line-height: 1.2;
 }
 
-h1 strong {
-  /* color: var(--light1); */
-  /* -webkit-text-fill-color: #fffaf4; */
-  /* -webkit-text-stroke: 0.125rem #4a2d11; */
-  /* text-shadow:
-    0.1875rem 0.1875rem 0 var(--dark2),
-    -0.1875rem 0.1875rem 0 var(--dark2),
-    -0.1875rem -0.1875rem 0 var(--dark2),
-    0.1875rem -0.1875rem 0 var(--dark2),
-    0rem -0.25rem 0 var(--dark2),
-    0rem 0.1875rem 0 var(--dark2),
-    -0.1875rem 0rem 0 var(--dark2),
-    0.1875rem 0rem 0 var(--dark2); */
-}
-
 h2 {
   font-size: 1.5rem;
 }
@@ -109,10 +94,6 @@ a {
 }
 a:hover {
   color: #e07900;
-}
-
-::marker {
-  
 }
 
 .menu-toggle svg path {
@@ -157,13 +138,20 @@ a:hover {
 }
 
 .project-card a:hover,
-.contact-button:hover {
+.contact-button:hover,
+.project-link:hover {
   box-shadow: 0 10px 15px -3px #c2410c50, 0 4px 6px -4px #c2410c50;
 }
 
 a.contact-button,
-a.contact-button:hover {
+a.contact-button:hover,
+a.project-link:first-of-type,
+a.project-link:hover:first-of-type {
   color: var(--dark2);
+}
+
+.project-link:first-of-type {
+  background: #fdba74;
 }
 
 .project-card a:hover h3 {
@@ -179,6 +167,10 @@ a.contact-button:hover {
   right: -1rem;
   bottom: -2.25rem;
   filter: sepia(0%);
+}
+
+details p {
+  margin: 0;
 }
 
 /* @media (prefers-color-scheme: dark) {

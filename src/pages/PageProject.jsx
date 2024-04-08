@@ -6,40 +6,35 @@ import Loading from '../components/Loading'
 export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const { slug } = useParams()
   const restPath = restBase + `posts?_embed&acf_format=standard&slug=${slug}`
-  const restPathProjects = restBase + 'posts?_embed'
   const [restData, setData] = useState([])
-  const [restDataProjects, setDataProjects] = useState([])
   const [isLoaded, setLoadStatus] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(restPath)
-      const response_projects = await fetch(restPathProjects)
-      if ( response.ok && response_projects.ok ) {
+      if ( response.ok ) {
         const data = await response.json()
-        const dataProjects = await response_projects.json()
         setData(data[0])
-        setDataProjects(dataProjects)
         setLoadStatus(true)
       } else {
         setLoadStatus(false)
       }
     }
     fetchData()
-  }, [restPath, restPathProjects])
+  }, [restPath])
 
   return (
     <>
       { isLoaded ?
         <article id={`post-${restData.id}`}>
-          <header>
+          <header className="mb-8">
             {restData.featured_media !== 0 && restData._embedded &&
-              <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+              <figure className="featured-image rounded-2xl overflow-hidden mx-auto my-0" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
-            <h1>{restData.title.rendered}</h1>
-            <div className="md:flex md:justify-center">
-              <table className="border-collapse flex">
-                <thead className="flex flex-col text-right">
+            <h1 className="my-4">{restData.title.rendered}</h1>
+            <div className="md:flex md:justify-center md:gap-4">
+              <table className="border-collapse flex md:min-w-96 align-middle">
+                <thead className="flex flex-col text-right text-wrap">
                   <tr className="inline-flex flex-col pr-2 py-1">
                     <th>Role</th>
                     <th>Tools</th>
@@ -56,24 +51,28 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               </table>
               <div className="md:w-11/12">
                 <p>{restData.acf.project_overview}</p>
-                {restData.acf.project_links.map( link =>
-                  <Link to={{ pathname:  `${link.project_link.url}` }} target={link.project_link.target}>{link.project_link.title}</Link>
-                )}
+                <div className="flex gap-4">
+                  {restData.acf.project_links !== false && restData.acf.project_links.map( (link, index) =>
+                    <Link to={{ pathname:  `${link.project_link.url}` }} target={link.project_link.target} key={index} className="project-link border-4 border-orange-300 no-underline my-0 inline-block px-7 py-2 w-max rounded-2xl text-center">{link.project_link.title}</Link>
+                  )}
+                </div>
               </div>
             </div>
           </header>
-          <section>
-            {restData.acf.project_details.map( dropdown =>
-              <details>
-                <summary>{dropdown.dropdown_header}</summary>
-                {dropdown.dropdown_content.map( content =>
-                  <div>
+          <section className="flex flex-col gap-4">
+            {restData.acf.project_details !== false && restData.acf.project_details.map( (dropdown, index) =>
+              <details key={index} className="bg-orange-300 rounded-2xl py-4 px-6">
+                <summary className=" uppercase tracking-wider font-bold list-outside pl-4 ml-4 cursor-pointer">{dropdown.dropdown_header}</summary>
+                <div className="bg-orange-100 rounded-2xl py-2 px-6 mt-4">
+                {dropdown.dropdown_content.map( (content, index) =>
+                  <div key={index}>
                     {content.content_image &&
                       <figure className="dropdown-image" dangerouslySetInnerHTML={fieldImage(content.content_image)} loading="lazy"></figure>
                     }
                     <div dangerouslySetInnerHTML={{__html:content.content_paragraph}}></div>
                   </div>
                 )}
+                </div>
               </details>
             )}
           </section>
