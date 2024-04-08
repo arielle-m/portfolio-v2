@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
+import { Helmet } from 'react-helmet-async'
 
 export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const { slug } = useParams()
@@ -27,6 +28,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
     <>
       { isLoaded ?
         <article id={`post-${restData.id}`}>
+          <Helmet>{restData.yoast_head}</Helmet>
           <header className="mb-8">
             {restData.featured_media !== 0 && restData._embedded &&
               <figure className="featured-image rounded-2xl overflow-hidden mx-auto my-0" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>

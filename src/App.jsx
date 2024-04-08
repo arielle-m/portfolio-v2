@@ -3,11 +3,14 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import PageHome from "./pages/PageHome"
 import PageProject from "./pages/PageProject"
+import { HelmetProvider } from 'react-helmet-async'
 
 
 function App() {
 
   const restBase = 'https://ariellemarin.com/portfolio/wp-json/wp/v2/'
+
+  const helmetContext = {}
 
   const featuredImage = ( featuredImageObject ) => {
     let imgWidth = featuredImageObject.media_details.sizes.full.width;
@@ -42,18 +45,20 @@ function App() {
   }
 
   return (
-    <div className="max-w-screen-lg flex flex-col mx-auto my-0">
-      <Router>
-        <Header />
-          <main id="main" className="p-4 flex flex-col grow min-h-screen">
-            <Routes>
-              <Route path="/" element={<PageHome restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage}/>} />
-              <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
-            </Routes>
-          </main>
-        <Footer />
-      </Router>
-    </div>
+    <HelmetProvider context={helmetContext}>
+      <div className="max-w-screen-lg flex flex-col mx-auto my-0">
+        <Router>
+          <Header />
+            <main id="main" className="p-4 flex flex-col grow min-h-screen">
+              <Routes>
+                <Route path="/" element={<PageHome restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage}/>} />
+                <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
+              </Routes>
+            </main>
+          <Footer />
+        </Router>
+      </div>
+    </HelmetProvider>
   )
 }
 

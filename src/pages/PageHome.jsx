@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 export default function PageHome( {restBase, featuredImage, fieldImage} ) {
     const restPath = restBase + 'pages/2?_embed&acf_format=standard'
@@ -40,6 +41,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
       <>
         { isLoaded ?
             <article id={`page-${restData.id}`}>
+                <Helmet>{restData.yoast_head}</Helmet>
                 <section id="#" className="max-h-96 flex flex-col justify-start mb-24">
                     <h1 className="uppercase font-semibold text-4xl tracking-wider mb-2 mt-6">{restData.acf.greeting} <br /><strong className="text-6xl">{restData.acf.name}</strong></h1>
                     <h2 className="font-semibold text-2xl uppercase leading-7 tracking-widest my-2 max-w-md">{restData.acf.occupation}</h2>
