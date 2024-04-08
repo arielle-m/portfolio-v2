@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="128" height="128"><svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="65.5" cy="78.5" r="29.5" fill="#FFB119"></circle>
+<circle cx="56.5" cy="81.5" r="26.5" stroke="#4A2D11" stroke-width="8"></circle>
+<path d="M85.8805 38.8805C77.3437 47.4172 62.5907 46.505 62.5907 46.505C62.5907 46.505 60.9205 30.994 69.4572 22.4572C77.994 13.9204 93.5051 15.5906 93.5051 15.5906C93.5051 15.5906 94.4173 30.3437 85.8805 38.8805Z" fill="#D9ED9E"></path>
+<path d="M73.0521 39.052C69.6178 42.4863 64.7319 44.1798 60.3393 44.9549C58.9166 45.2059 57.5964 45.3516 56.4685 45.4339C56.4958 44.211 56.5837 42.7633 56.7886 41.2033C57.392 36.61 58.931 31.6402 62.2857 28.2856C65.6403 24.931 70.61 23.3919 75.2034 22.7886C76.7633 22.5836 78.211 22.4958 79.434 22.4685C79.3516 23.5964 79.2059 24.9165 78.9549 26.3392C78.1799 30.7319 76.4863 35.6178 73.0521 39.052Z" stroke="#4A2D11" stroke-width="8"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
