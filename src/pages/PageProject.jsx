@@ -65,13 +65,13 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
             {restData.acf.project_details !== false && restData.acf.project_details.map( (dropdown, index) =>
               <details key={index} className="bg-orange-300 rounded-2xl py-4 px-6">
                 <summary className=" uppercase tracking-wider font-bold list-outside pl-4 ml-4 cursor-pointer">{dropdown.dropdown_header}</summary>
-                <div className="bg-orange-100 rounded-2xl py-2 px-6 mt-4">
+                <div className="bg-orange-100 rounded-2xl py-4 px-6 mt-4 flex flex-col gap-6">
                 {dropdown.dropdown_content.map( (content, index) =>
-                  <div key={index}>
+                  <div key={index} className="sm:flex sm:gap-4">
                     {content.content_image &&
-                      <figure className="dropdown-image" dangerouslySetInnerHTML={fieldImage(content.content_image)} loading="lazy"></figure>
+                      <figure className="dropdown-image rounded-2xl overflow-hidden max-h-40 sm:w-48 sm:h-auto sm:max-h-none lg:w-72" dangerouslySetInnerHTML={fieldImage(content.content_image)} loading="lazy"></figure>
                     }
-                    <div dangerouslySetInnerHTML={{__html:content.content_paragraph}}></div>
+                    <div className="w-full" dangerouslySetInnerHTML={{__html:content.content_paragraph}}></div>
                   </div>
                 )}
                 </div>
