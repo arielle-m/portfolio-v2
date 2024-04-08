@@ -6,13 +6,13 @@ export default function Footer() {
       <nav>
         <ul className="flex justify-center gap-x-3">
           <li>  
-            <Link to={{ pathname: "mailto:ariem.marii@gmail.com" }} target="_blank" className="no-underline">Email</Link>
+            <Link to="mailto:ariem.marii@gmail.com" target="_blank" className="no-underline">Email</Link>
           </li>
           <li>
-            <Link to={{ pathname: "https://www.linkedin.com/in/ariellemarin/" }} target="_blank" className="no-underline">LinkedIn</Link>
+            <Link to="https://www.linkedin.com/in/ariellemarin/" target="_blank" className="no-underline">LinkedIn</Link>
           </li>
           <li>
-            <Link to={{ pathname: "https://github.com/arielle-m" }} target="_blank" className="no-underline">GitHub</Link>
+            <Link to="https://github.com/arielle-m" target="_blank" className="no-underline">GitHub</Link>
           </li>
         </ul>
       </nav>

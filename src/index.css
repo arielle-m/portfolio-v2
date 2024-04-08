@@ -139,7 +139,8 @@ a:hover {
 
 .project-card a:hover,
 .contact-button:hover,
-.project-link:hover {
+.project-link:hover,
+.project.featured-image {
   box-shadow: 0 10px 15px -3px #c2410c50, 0 4px 6px -4px #c2410c50;
 }
 

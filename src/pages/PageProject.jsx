@@ -31,9 +31,9 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
           <Helmet>{restData.yoast_head}</Helmet>
           <header className="mb-8">
             {restData.featured_media !== 0 && restData._embedded &&
-              <figure className="featured-image rounded-2xl overflow-hidden mx-auto my-0" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+              <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
-            <h1 className="my-4">{restData.title.rendered}</h1>
+            <h1 className="mb-4 mt-8">{restData.title.rendered}</h1>
             <div className="md:flex md:justify-center md:gap-4">
               <table className="border-collapse flex md:min-w-96 align-middle">
                 <thead className="flex flex-col text-right text-wrap">
@@ -55,7 +55,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                 <p>{restData.acf.project_overview}</p>
                 <div className="flex gap-4">
                   {restData.acf.project_links !== false && restData.acf.project_links.map( (link, index) =>
-                    <Link to={{ pathname:  `${link.project_link.url}` }} target={link.project_link.target} key={index} className="project-link border-4 border-orange-300 no-underline my-0 inline-block px-7 py-2 w-max rounded-2xl text-center">{link.project_link.title}</Link>
+                    <Link to={link.project_link.url} target={link.project_link.target} key={index} className="project-link border-4 border-orange-300 no-underline my-0 inline-block px-7 py-2 w-max rounded-2xl text-center">{link.project_link.title}</Link>
                   )}
                 </div>
               </div>
