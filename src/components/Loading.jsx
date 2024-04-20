@@ -1,9 +1,11 @@
-import loading from '../assets/loading.gif';
-
 export default function Loading() {
     
     return (
-        <img src={loading} alt="Loading" className="loading mx-auto h-32 w-32 sepia brightness-50" id="loading" />
+        <div className="loading-bg flex flex-col min-h-screen w-screen justify-center items-center z-50 fixed top-0">
+            <div className="loading mx-auto h-32 w-32" id="loading">
+                <div></div>
+            </div>
+        </div>
     )
 
 }

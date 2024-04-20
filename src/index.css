@@ -29,7 +29,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+body,
+.loading-bg {
   margin: 0;
   display: flex;
   place-items: center;
@@ -41,6 +42,10 @@ body {
 
 #root {
   width: 100%;
+}
+
+.loading-bg {
+  background: var(--light1);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -130,6 +135,34 @@ a:hover {
 .site-navigation.toggled #header-menu {
   width: 100%;
   right: 0;
+}
+
+.loading {
+  overflow: hidden;
+  background: #fed7aa;
+  height: 1rem;
+  width: 15rem;
+  border-radius: 5rem;
+}
+
+.loading div {
+  width: 5rem;
+  height: 1rem;
+  border-radius: 5rem;
+  background: #fb923c;
+  position: relative;
+  animation-name: loading;
+  animation-duration: 1.5s;  
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+}
+
+@keyframes loading {
+  from {left: -2.75rem; background-color: #fbbf24;}
+  to {left: 12.25rem; background-color: #fb923c;}
 }
 
 .project-card a,
