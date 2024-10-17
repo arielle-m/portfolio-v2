@@ -115,6 +115,19 @@ a:hover {
   transform: translate3d(0, 0, 0)
 }
 
+.duck {
+  margin: 1rem 0 0 1rem;
+  filter: drop-shadow(0 0 3px #804400);
+}
+
+/* .duck-head {
+  background: radial-gradient(
+    circle at center,
+    #431407 30%,
+    #fafafa 30%
+  );
+} */
+
 
 .menu-toggle svg path {
   stroke: var(--light1);
