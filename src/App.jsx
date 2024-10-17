@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Cursor from "./components/Cursor"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import PageHome from "./pages/PageHome"
 import PageProject from "./pages/PageProject"
 import { HelmetProvider } from 'react-helmet-async'
-
 
 function App() {
 
@@ -46,8 +46,9 @@ function App() {
 
   return (
     <HelmetProvider context={helmetContext}>
-      <div className="max-w-screen-lg flex flex-col mx-auto my-0">
+      <div className="max-w-screen-lg flex flex-col mx-auto my-0" >
         <Router>
+          <Cursor />
           <Header />
             <main id="main" className="p-4 flex flex-col grow min-h-screen">
               <Routes>

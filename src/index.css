@@ -29,6 +29,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, 
+body {
+  &,
+  * {
+    cursor: none;
+  }
+}
+
 body,
 .loading-bg {
   margin: 0;
@@ -100,6 +108,13 @@ a {
 a:hover {
   color: #e07900;
 }
+
+
+.main-cursor,
+.secondary-cursor {
+  transform: translate3d(0, 0, 0)
+}
+
 
 .menu-toggle svg path {
   stroke: var(--light1);
