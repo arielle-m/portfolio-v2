@@ -44,11 +44,17 @@ function App() {
     return {__html: img}
   }
 
+  function isTouchEnabled() {
+    return ( 'ontouchstart' in window ) || 
+           ( navigator.maxTouchPoints > 0 ) ||
+           ( navigator.msMaxTouchPoints > 0 );           
+  }
+
   return (
     <HelmetProvider context={helmetContext}>
+      { isTouchEnabled() ? <></> : <Cursor /> }
       <div className="max-w-screen-lg flex flex-col mx-auto my-0" >
         <Router>
-          <Cursor />
           <Header />
             <main id="main" className="p-4 flex flex-col grow min-h-screen">
               <Routes>
