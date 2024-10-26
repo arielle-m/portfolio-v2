@@ -42,9 +42,15 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
         { isLoaded ?
             <article id={`page-${restData.id}`}>
                 <Helmet>{restData.yoast_head}</Helmet>
-                <section id="#" className="max-h-96 flex flex-col justify-start mb-24">
-                    <h1 className="uppercase font-semibold text-4xl tracking-wider mb-2 mt-6">{restData.acf.greeting} <br /><strong className="text-6xl">{restData.acf.name}</strong></h1>
-                    <h2 className="font-semibold text-2xl uppercase leading-7 tracking-widest my-2 max-w-md">{restData.acf.occupation}</h2>
+                <section id="#" className="h-96 flex flex-col justify-start mb-24">
+                    <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <br /><strong className="wide block text-8xl tracking-wide">{restData.acf.name}</strong></h1>
+                    <h2 className="font-black text-2xl uppercase leading-8 tracking-widest my-2 max-w-md mt-3">{restData.acf.occupation}</h2>
+                    {/* <h2 className="skew text-orange-700 shantell lowercase font-medium text-3xl tracking-normal my-2 max-w-md mt-3 mb-4">{restData.acf.occupation}</h2> */}
+                    {/* <h2 className="playpen wide skew font-extrabold text-2xl uppercase leading-8 tracking-widest my-2 max-w-md">{restData.acf.occupation}</h2> */}
+                    {/* <h2 className="text-orange-700 playpen wide skew font-medium text-3xl lowercase leading-9 tracking-wide my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
+                    {/* <h2 className="gochi skew text-4xl lowercase leading-9 tracking-wider my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
+                    {/* <h2 className="nanum skew text-5xl lowercase leading-9 tracking-normal my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
+                    {/* <h2 className="fuzzybubbles font-bold skew text-3xl lowercase leading-9 tracking-wider my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
                     <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
                 </section>
                 <section id="projects">

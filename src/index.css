@@ -56,14 +56,51 @@ body,
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Fredoka, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 500;
   color: var(--dark2);
 }
 
+.playpen {
+  font-family: "Playpen Sans", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.shantell {
+  font-family: "Shantell Sans", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+.gochi {
+  font-family: "Gochi Hand", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.nanum {
+  font-family: "Nanum Pen Script", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.fuzzybubbles {
+  font-family: "Fuzzy Bubbles", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.wide {
+  transform-origin: center left;
+  transform: scaleX(1.125);
+}
+
+.skew {
+  transform-origin: center left;
+  transform: skewX(-10deg);
+}
+
 h1 {
+  font-family: "Bagel Fat One", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 4rem;
   line-height: 1.2;
+}
+
+h1>strong {
+  color: transparent;
+  -webkit-text-stroke: 0.25rem var(--dark2);
 }
 
 h2 {
