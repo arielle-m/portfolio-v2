@@ -3,20 +3,20 @@ import React from 'react'
 export default function Cursor() {
 
     const mainCursor = React.useRef(null)
-    const secondaryCursor = React.useRef(null)
+    // const secondaryCursor = React.useRef(null)
     const duckHeadCursor = React.useRef(null)
     const duckBodyCursor = React.useRef(null)
     const duckBillCursor = React.useRef(null)
 
-    const positionRef = React.useRef({
-        mouseX: 0, // current position
-        mouseY: 0,
-        destinationX: 0, // next position
-        destinationY: 0,
-        distanceX: 0, // distance between current and next position
-        distanceY: 0,
-        key: -1
-    })
+    // const positionRef = React.useRef({
+    //     mouseX: 0, // current position
+    //     mouseY: 0,
+    //     destinationX: 0, // next position
+    //     destinationY: 0,
+    //     distanceX: 0, // distance between current and next position
+    //     distanceY: 0,
+    //     key: -1
+    // })
     const duckHeadRef = React.useRef({
         mouseX: 0,
         mouseY: 0,
@@ -52,8 +52,8 @@ export default function Cursor() {
             const mouseX = clientX
             const mouseY = clientY
 
-            positionRef.current.mouseX = mouseX - secondaryCursor.current.clientWidth / 2
-            positionRef.current.mouseY = mouseY - secondaryCursor.current.clientHeight / 2
+            // positionRef.current.mouseX = mouseX - secondaryCursor.current.clientWidth / 2
+            // positionRef.current.mouseY = mouseY - secondaryCursor.current.clientHeight / 2
 
             duckHeadRef.current.mouseX = mouseX - duckHeadCursor.current.clientWidth / 2
             duckHeadRef.current.mouseY = mouseY - duckHeadCursor.current.clientHeight / 2
@@ -68,42 +68,42 @@ export default function Cursor() {
         })
     }, [])
 
-    React.useEffect(()=>{
-        const followMouse = () => {
+    // React.useEffect(()=>{
+    //     const followMouse = () => {
 
-            positionRef.current.key = requestAnimationFrame(followMouse)
+    //         positionRef.current.key = requestAnimationFrame(followMouse)
 
-            const {
-                mouseX, 
-                mouseY, 
-                destinationX, 
-                destinationY, 
-                distanceX, 
-                distanceY
-            } = positionRef.current
+    //         const {
+    //             mouseX, 
+    //             mouseY, 
+    //             destinationX, 
+    //             destinationY, 
+    //             distanceX, 
+    //             distanceY
+    //         } = positionRef.current
 
-            if(!destinationX || !destinationY) { 
-                // if current position is not equal to the destination
-                positionRef.current.destinationX = mouseX
-                positionRef.current.destinationY = mouseY
-            } else {
-                positionRef.current.distanceX = (mouseX - destinationX) * 0.03
-                positionRef.current.distanceY = (mouseY - destinationY) * 0.03
+    //         if(!destinationX || !destinationY) { 
+    //             // if current position is not equal to the destination
+    //             positionRef.current.destinationX = mouseX
+    //             positionRef.current.destinationY = mouseY
+    //         } else {
+    //             positionRef.current.distanceX = (mouseX - destinationX) * 0.03
+    //             positionRef.current.distanceY = (mouseY - destinationY) * 0.03
 
-                if(Math.abs(positionRef.current.distanceX) + Math.abs(positionRef.current.distanceY) < 0.01) {
-                    positionRef.current.destinationX = mouseX
-                    positionRef.current.destinationY = mouseY
-                } else {
-                    positionRef.current.destinationX += distanceX
-                    positionRef.current.destinationY += distanceY
-                }
-            }
+    //             if(Math.abs(positionRef.current.distanceX) + Math.abs(positionRef.current.distanceY) < 0.01) {
+    //                 positionRef.current.destinationX = mouseX
+    //                 positionRef.current.destinationY = mouseY
+    //             } else {
+    //                 positionRef.current.destinationX += distanceX
+    //                 positionRef.current.destinationY += distanceY
+    //             }
+    //         }
 
-            secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`
-        }
+    //         secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`
+    //     }
 
-        followMouse()
-    }, [])
+    //     followMouse()
+    // }, [])
 
     React.useEffect(()=>{
         const duckHeadFollowMouse = () => {
@@ -221,7 +221,7 @@ export default function Cursor() {
                 <div className="duck-head bg-zinc-50 h-4 w-4 rounded-full fixed z-30" ref={duckHeadCursor}></div>
                 <div className="duck-body bg-zinc-50 h-5 w-8 rounded-full mt-2 fixed z-20" ref={duckBodyCursor}></div>
             </div>
-            <div className="secondary-cursor min-h-10 min-w-10 border-orange-500 border z-20 fixed rounded-full pointer-events-none flex" ref={secondaryCursor}></div>
+            {/* <div className="secondary-cursor min-h-10 min-w-10 border-orange-500 border z-20 fixed rounded-full pointer-events-none flex" ref={secondaryCursor}></div> */}
         </div>
     )
 }
