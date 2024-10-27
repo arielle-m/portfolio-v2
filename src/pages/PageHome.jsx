@@ -45,10 +45,8 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 <section id="#" className="h-96 flex flex-col justify-start mb-24">
                     <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <br /><strong className="wide block text-8xl tracking-wide">{restData.acf.name}</strong></h1>
                     {/* <h2 className="font-black text-3xl uppercase leading-8 tracking-widest my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
-                    {/* <h2 className="shantell lowercase font-medium text-3xl tracking-normal my-2 max-w-md mt-3 mb-4">{restData.acf.occupation}</h2> */}
-                    {/* <h2 className="gochi text-3xl lowercase leading-9 tracking-widest my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
                     {/* <h2 className="nanum skew text-5xl lowercase leading-9 tracking-normal my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
-                    <h2 className="gaegu skew text-4xl lowercase leading-8 tracking-tight my-2 max-w-md mt-3">{restData.acf.occupation}</h2>
+                    <h2 className="gaegu text-4xl lowercase leading-8 tracking-tight max-w-md mt-3 mb-4">{restData.acf.occupation}</h2>
                     {/* <h2 className="caveat font-bold text-5xl lowercase leading-10 tracking-wider my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
                     <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: restData.acf.landing_paragraph}}></div>
                 </section>
@@ -81,14 +79,14 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                             </div>
                         </div>
                     <article className="skills">
-                        <h3 className="md:text-2xl">{restData.acf.skills_header}</h3>
-                            <h4 className="uppercase font-bold tracking-wider mt-2">{restDataSkillDevelopment[0]._embedded['wp:term'][0][0].name}</h4>
+                        <h3 className="uppercase tracking-widest md:text-2xl">{restData.acf.skills_header}</h3>
+                            <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDevelopment[0]._embedded['wp:term'][0][0].name}</h4>
                             <ul>
                             {restDataSkillDevelopment.map (skilldevelopment =>
                                 <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.title.rendered}</li>
                             )}
                             </ul>
-                            <h4 className="uppercase font-bold tracking-wider mt-2">{restDataSkillDesign[0]._embedded['wp:term'][0][0].name}</h4>
+                            <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDesign[0]._embedded['wp:term'][0][0].name}</h4>
                             <ul>
                             {restDataSkillDesign.map (skilldesign =>
                                 <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.title.rendered}</li>
