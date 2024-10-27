@@ -227,6 +227,14 @@ a:hover {
   to {left: 12.25rem; background-color: #fb923c;}
 }
 
+main>article>section {
+  padding: 1rem;
+}
+
+#hero {
+  border-radius: 0 0 3rem 3rem ;
+}
+
 .project-card a,
 .contact-button {
   transition: 300ms ease;

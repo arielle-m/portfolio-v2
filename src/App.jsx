@@ -53,10 +53,10 @@ function App() {
   return (
     <HelmetProvider context={helmetContext}>
       { isTouchEnabled() ? <></> : <Cursor /> }
-      <div className="max-w-screen-lg flex flex-col mx-auto my-0" >
+      <div className="max-w-screen-xl flex flex-col mx-auto my-0" >
         <Router>
           <Header />
-            <main id="main" className="p-4 flex flex-col grow min-h-screen">
+            <main id="main" className="flex flex-col grow min-h-screen">
               <Routes>
                 <Route path="/" element={<PageHome restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage}/>} />
                 <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
