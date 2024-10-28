@@ -95,7 +95,12 @@ h1 {
 
 h1>strong {
   color: transparent;
-  -webkit-text-stroke: 0.25rem var(--dark2);
+  -webkit-text-stroke: 0.20rem var(--dark2);
+}
+@media (min-width: 64em) {
+  h1>strong {
+    -webkit-text-stroke: 0.25rem var(--dark2);
+  }
 }
 
 h2 {
