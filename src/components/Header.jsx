@@ -10,7 +10,7 @@ export default function Header() {
     }
 
     return (
-        <header id="masthead" className="site-header p-4">
+        <header id="masthead" className="site-header p-4 z-30">
             <div className="site-branding">
                 <Link to="/" className="site-logo no-underline text-orange-800 uppercase tracking-widest">
                     <p className="site-title m-0">Arielle Marin</p>

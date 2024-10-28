@@ -27,7 +27,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   return (
     <>
       { isLoaded ?
-        <article id={`post-${restData.id}`}>
+        <article id={`post-${restData.id}`} className="z-0">
           <Helmet>{restData.yoast_head}</Helmet>
           <header className="mb-8">
             {restData.featured_media !== 0 && restData._embedded &&
