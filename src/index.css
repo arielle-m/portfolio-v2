@@ -93,14 +93,30 @@ h1 {
   line-height: 1.2;
 }
 
-h1>strong {
+h1>strong,
+section>h2 {
   color: transparent;
-  -webkit-text-stroke: 0.20rem var(--dark2);
+  -webkit-text-stroke: 0.1875rem var(--dark2);
 }
 @media (min-width: 64em) {
-  h1>strong {
+  h1>strong,
+  section>h2 {
     -webkit-text-stroke: 0.25rem var(--dark2);
   }
+}
+
+section>h2 {
+  -webkit-text-stroke: 0.15625rem var(--dark2);
+}
+@media (min-width: 64em) {
+  section>h2 {
+    -webkit-text-stroke: 0.21875rem var(--dark2);
+  }
+}
+
+h2>strong {
+  color: var(--dark2);
+  -webkit-text-stroke: transparent;
 }
 
 h2 {

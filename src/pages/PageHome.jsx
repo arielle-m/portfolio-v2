@@ -42,7 +42,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
         { isLoaded ?
             <article id={`page-${restData.id}`} className="z-0">
                 <Helmet>{restData.yoast_head}</Helmet>
-                <section id="hero" className="relative h-full my-4 overflow-x-clip lg:overflow-visible">
+                <section id="hero" className="relative h-full my-4 md:my-10 lg:my-18 overflow-x-clip lg:overflow-visible">
                     <div className=" flex flex-col justify-start mb-12 md:flex-row md:items-end md:justify-evenly">
                         <div className="z-10">
                             <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <br /><strong className="wide block w-min text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wide">{restData.acf.name}</strong></h1>
@@ -62,7 +62,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     </svg>
                 </section>
                 <section id="projects">
-                    <h2 className="uppercase font-semibold tracking-wider md:text-3xl mb-4">{restData.acf.projects_header}</h2>
+                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.projects_header}</h2>
                     <div className="projects md:flex md:flex-wrap md:gap-x-4">
                     {restDataProjects.map( project => 
                         <article key={project.id} id={`post-${project.id}`} className="project-card h-36 max-w-lg md:max-w-md lg:max-w-xs mb-4 mt-0 mx-auto">
@@ -79,7 +79,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     </div>
                 </section>
                 <section id="about" className="py-8">
-                    <h2 className="uppercase font-semibold tracking-wider md:text-3xl mb-4">{restData.acf.about_header}</h2>
+                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.about_header}</h2>
                         <div className="md:flex md:gap-4">
                             {restData.acf.about_image &&
                                 <figure className="about-image rounded-2xl max-h-80 w-9/12 overflow-hidden mb-4 mt-0 mx-auto md:w-full md:max-h-none md:h-full" dangerouslySetInnerHTML={fieldImage(restData.acf.about_image)} loading="lazy"></figure>
@@ -106,7 +106,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     </article>
                 </section>
                 <section id="contact" className="py-8">
-                    <h2 className="uppercase font-semibold tracking-wider md:text-3xl mb-4">{restData.acf.contact_header}</h2>
+                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.contact_header}</h2>
                     <div dangerouslySetInnerHTML={{__html: restData.acf.contact_paragraph}}></div>
                     <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target} className="contact-button no-underline my-0 mx-auto block px-8 py-2 w-max bg-orange-300 rounded-full">{restData.acf.contact_button.title}</Link>
                 </section>
