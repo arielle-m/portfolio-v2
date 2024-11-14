@@ -8,7 +8,7 @@ import { HelmetProvider } from 'react-helmet-async'
 
 function App() {
 
-  const restBase = 'https://ariellemarin.com/portfolio/wp-json/wp/v2/'
+  const restBase = 'https://ariellemarin.com/portfolio-v2/wp-json/wp/v2/'
 
   const helmetContext = {}
 
