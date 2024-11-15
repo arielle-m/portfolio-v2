@@ -6,36 +6,29 @@ import { Helmet } from 'react-helmet-async'
 export default function PageHome( {restBase, featuredImage, fieldImage} ) {
     const restPath = restBase + 'pages/2?_embed&acf_format=standard'
     const restPathProjects = restBase + 'project?_embed'
-    // const restPathSkillDevelopment = restBase + 'skill?_embed&orderby=title&order=asc&per_page=50&skill-category=23'
-    // const restPathSkillDesign = restBase + 'skill?_embed&orderby=title&order=asc&per_page=50&skill-category=22'
-    const restPathSkill = restBase + 'skill-category'
+    const restPathSkillDevelopment = restBase + 'skill-category?_embed&parent=3'
+    const restPathSkillDesign = restBase + 'skill-category?_embed&parent=4'
     const [restData, setData] = useState([])
     const [restDataProjects, setDataProjects] = useState([])
-    // const [restDataSkillDevelopment, setDataSkillDevelopment] = useState([])
-    // const [restDataSkillDesign, setDataSkillDesign] = useState([])
-    const [restDataSkill, setDataSkill] = useState([])
+    const [restDataSkillDevelopment, setDataSkillDevelopment] = useState([])
+    const [restDataSkillDesign, setDataSkillDesign] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(restPath)
             const response_projects = await fetch(restPathProjects)
-            // const response_skill_development = await fetch(restPathSkillDevelopment)
-            // const response_skill_design = await fetch(restPathSkillDesign)
-            const response_skill = await fetch(restPathSkill)
-            if ( response.ok && response_projects.ok && 
-            // response_skill_development.ok && response_skill_design.ok
-            response_skill.ok ) {
+            const response_skill_development = await fetch(restPathSkillDevelopment)
+            const response_skill_design = await fetch(restPathSkillDesign)
+            if ( response.ok && response_projects.ok && response_skill_development.ok && response_skill_design.ok ) {
                 const data = await response.json()
                 const dataProjects = await response_projects.json()
-                // const dataSkillDevelopment = await response_skill_development.json()
-                // const dataSkillDesign = await response_skill_design.json()
-                const dataSkill = await response_skill.json()
+                const dataSkillDevelopment = await response_skill_development.json()
+                const dataSkillDesign = await response_skill_design.json()
                 setData(data)
                 setDataProjects(dataProjects)
-                // setDataSkillDevelopment(dataSkillDevelopment)
-                // setDataSkillDesign(dataSkillDesign)
-                setDataSkill(dataSkill)
+                setDataSkillDevelopment(dataSkillDevelopment)
+                setDataSkillDesign(dataSkillDesign)
                 setLoadStatus(true)
                 console.log('loaded')
             } else {
@@ -44,10 +37,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
             }
         }
         fetchData()
-    }, [restPath, restPathProjects, 
-        // restPathSkillDevelopment, restPathSkillDesign
-        restPathSkill
-    ])
+    }, [restPath, restPathProjects, restPathSkillDevelopment, restPathSkillDesign ])
     
     return (
       <>
@@ -104,19 +94,17 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                         </div>
                     <article className="skills">
                         <h3 className="uppercase tracking-widest md:text-2xl">{restData.acf.skills_heading}</h3>
-                            {/* <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkill[0]._embedded['up'][0].name}</h4> */}
-                            {/* <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkill[0]._embedded.up[0].name}</h4> */}
-                            {/* <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDevelopment[0]._embedded['wp:term'][0][0].name}</h4> */}
+                            <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDevelopment[0]._embedded.up[0].name}</h4>
                             <ul>
-                            {/* {restDataSkillDevelopment.map (skilldevelopment =>
-                                <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.title.rendered}</li>
-                            )} */}
+                            {restDataSkillDevelopment.map (skilldevelopment =>
+                                <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.name}</li>
+                            )}
                             </ul>
-                            {/* <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDesign[0]._embedded['wp:term'][0][0].name}</h4> */}
+                            <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDesign[0]._embedded.up[0].name}</h4>
                             <ul>
-                            {/* {restDataSkillDesign.map (skilldesign =>
-                                <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.title.rendered}</li>
-                            )} */}
+                            {restDataSkillDesign.map (skilldesign =>
+                                <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.name}</li>
+                            )}
                             </ul>
                     </article>
                 </section>
