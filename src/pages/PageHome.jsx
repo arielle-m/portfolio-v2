@@ -30,10 +30,8 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 setDataSkillDevelopment(dataSkillDevelopment)
                 setDataSkillDesign(dataSkillDesign)
                 setLoadStatus(true)
-                console.log('loaded')
             } else {
                 setLoadStatus(false)
-                console.log('not loaded')
             }
         }
         fetchData()
