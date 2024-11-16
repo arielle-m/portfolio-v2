@@ -6,8 +6,8 @@ import { Helmet } from 'react-helmet-async'
 export default function PageHome( {restBase, featuredImage, fieldImage} ) {
     const restPath = restBase + 'pages/2?_embed&acf_format=standard'
     const restPathProjects = restBase + 'project?_embed'
-    const restPathSkillDevelopment = restBase + 'skill-category?_embed&parent=3'
-    const restPathSkillDesign = restBase + 'skill-category?_embed&parent=4'
+    const restPathSkillDevelopment = restBase + 'skill-category?_embed&per_page=50&parent=3'
+    const restPathSkillDesign = restBase + 'skill-category?_embed&per_page=50&parent=4'
     const [restData, setData] = useState([])
     const [restDataProjects, setDataProjects] = useState([])
     const [restDataSkillDevelopment, setDataSkillDevelopment] = useState([])
