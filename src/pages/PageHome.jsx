@@ -76,7 +76,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                                 <p className="">{project.excerpt.rendered}</p>
                                 <ul>
                                     {project._embedded['wp:term'][1].map( skill =>
-                                        <li className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
+                                        <li key={skill.id} className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
                                     )}
                                 </ul>
                             </Link>
@@ -112,7 +112,8 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     </article>
                 </section>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                    <path fill="#FB923C" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,288C384,288,480,256,576,250.7C672,245,768,267,864,266.7C960,267,1056,245,1152,245.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    {/* <path fill="#FB923C" d="M0,224L48,240C96,256,192,288,288,288C384,288,480,256,576,250.7C672,245,768,267,864,266.7C960,267,1056,245,1152,245.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path> */}
+                    <path fill="#FB923C" d="M0,96L48,90.7C96,85,192,75,288,85.3C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg>
                 <section id="contact" className="bg-orange-400">
                     <div className="py-8 text-center mx-auto lg:w-6/12">
