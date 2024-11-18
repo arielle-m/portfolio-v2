@@ -74,6 +74,11 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                                 }
                                 <h3 className="absolute z-30 top-4">{project.title.rendered}</h3>
                                 <p className="">{project.excerpt.rendered}</p>
+                                <ul>
+                                    {project._embedded['wp:term'][1].map( skill =>
+                                        <li className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
+                                    )}
+                                </ul>
                             </Link>
                         </article>
                     )}
