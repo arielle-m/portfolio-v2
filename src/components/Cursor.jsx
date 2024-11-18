@@ -215,7 +215,8 @@ export default function Cursor() {
 
     return (
         <div className="z-50">
-            <div className="main-cursor h-4 w-4 bg-orange-500 z-50 fixed rounded-full pointer-events-none overflow-hidden" ref={mainCursor}></div>
+            {/* <div className="main-cursor h-4 w-4 bg-orange-500 z-50 fixed rounded-full pointer-events-none overflow-hidden" ref={mainCursor}></div> */}
+            <div className="main-cursor" ref={mainCursor}></div>
             <div className="duck fixed flex flex-col items-center z-40">
                 <div className="duck-bill bg-amber-400 h-2 w-3 rounded-full mt-1 fixed z-40" ref={duckBillCursor}></div>
                 <div className="duck-head bg-zinc-50 h-4 w-4 rounded-full fixed z-30" ref={duckHeadCursor}></div>
