@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import { Helmet } from 'react-helmet-async'
 
 export default function PageHome( {restBase, featuredImage, fieldImage} ) {
@@ -55,7 +56,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                             {/* <h2 className="caveat font-bold text-5xl lowercase leading-10 tracking-wider my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
                             <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: restData.acf.pitch}}></div>
                         </div>
-                        <Link to={restData.acf.landing_button.url} target={restData.acf.landing_button.target} className="contact-button block md:hidden no-underline mt-3 px-8 py-2 w-max bg-orange-300 rounded-full z-10">{restData.acf.landing_button.title}</Link>
+                        <HashLink to={restData.acf.landing_button.url}  smooth className="contact-button block md:hidden no-underline mt-3 px-8 py-2 w-max bg-orange-300 rounded-full z-10">{restData.acf.landing_button.title}</HashLink>
                     </div>
                     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute z-0 max-w-full h-full bottom-24 -right-36 scale-y-110 scale-x-150  md:bottom-20 md:right-24 lg:bottom-24 lg:right-60 md:scale-y-110 md:scale-x-150">
                         <path fill="#FB923C" d="M46.2,-43.8C61.7,-30.8,77.3,-15.4,79.7,2.4C82.1,20.2,71.4,40.5,55.9,51.5C40.5,62.6,20.2,64.5,4.8,59.7C-10.6,54.9,-21.2,43.3,-34.8,32.3C-48.5,21.2,-65.2,10.6,-70.8,-5.6C-76.3,-21.8,-70.8,-43.6,-57.2,-56.6C-43.6,-69.7,-21.8,-74.1,-3.2,-70.9C15.4,-67.7,30.8,-56.9,46.2,-43.8Z" transform="translate(100 100)" />
