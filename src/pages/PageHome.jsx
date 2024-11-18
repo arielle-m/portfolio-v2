@@ -106,10 +106,15 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                             </ul>
                     </article>
                 </section>
-                <section id="contact" className="py-8">
-                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.contact_heading_pre}<strong>{restData.acf.contact_heading}</strong>{restData.acf.contact_heading_post}</h2>
-                    <div dangerouslySetInnerHTML={{__html: restData.acf.contact_paragraph}}></div>
-                    <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target} className="contact-button no-underline my-0 mx-auto block px-8 py-2 w-max bg-orange-300 rounded-full">{restData.acf.contact_button.title}</Link>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#FB923C" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,288C384,288,480,256,576,250.7C672,245,768,267,864,266.7C960,267,1056,245,1152,245.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+                <section id="contact" className="bg-orange-400">
+                    <div className="py-8 text-center mx-auto lg:w-6/12">
+                        <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.contact_heading_pre}<strong>{restData.acf.contact_heading}</strong>{restData.acf.contact_heading_post}</h2>
+                        <div className="text-lg" dangerouslySetInnerHTML={{__html: restData.acf.contact_paragraph}}></div>
+                        <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target} className="contact-button no-underline my-0 mx-auto block px-8 py-2 w-max bg-orange-300 rounded-full">{restData.acf.contact_button.title}</Link>
+                    </div>
                 </section>
             </article>
         : 
