@@ -94,22 +94,26 @@ h1 {
 }
 
 h1>strong,
-section>h2 {
+section>h2,
+section#contact>div>h2 {
   color: transparent;
   -webkit-text-stroke: 0.1875rem var(--dark2);
 }
 @media (min-width: 64em) {
   h1>strong,
-  section>h2 {
+  section>h2,
+  section#contact>div>h2 {
     -webkit-text-stroke: 0.25rem var(--dark2);
   }
 }
 
-section>h2 {
+section>h2,
+section#contact>div>h2 {
   -webkit-text-stroke: 0.15625rem var(--dark2);
 }
 @media (min-width: 64em) {
-  section>h2 {
+  section>h2,
+  section#contact>div>h2 {
     -webkit-text-stroke: 0.21875rem var(--dark2);
   }
 }
