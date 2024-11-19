@@ -121,7 +121,7 @@ section#contact>div>h2 {
 h2>strong,
 h2.project-content {
   color: var(--dark2);
-  -webkit-text-stroke: none;
+  -webkit-text-stroke: 0;
 }
 
 h2 {
