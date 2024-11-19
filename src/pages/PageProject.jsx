@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async'
 
 export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const { slug } = useParams()
-  const restPath = restBase + `posts?_embed&acf_format=standard&slug=${slug}`
+  const restPath = restBase + `project?_embed&acf_format=standard&slug=${slug}`
   const [restData, setData] = useState([])
   const [isLoaded, setLoadStatus] = useState(false)
 
@@ -45,24 +45,60 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                 </thead>
                 <tbody>
                   <tr className="inline-flex flex-col text-left pl-2 py-1">
-                    <td>{restData.acf.project_info.role}</td>
-                    <td>{restData.acf.project_info.skills}</td>
-                    <td>{restData.acf.project_info.team_size}</td>
+                    {/* <td>{restData.acf.project_info.role}</td> */}
+                    {/* <td>{restData.acf.project_info.skills}</td> */}
+                    {/* <td>{restData.acf.project_info.team_size}</td> */}
                   </tr>
                 </tbody>
               </table>
               <div className="md:w-11/12">
-                <p>{restData.acf.project_overview}</p>
+                {/* <p>{restData.acf.project_overview}</p> */}
                 <div className="flex gap-4">
-                  {restData.acf.project_links !== false && restData.acf.project_links.map( (link, index) =>
+                  {/* {restData.acf.project_links !== false && restData.acf.project_links.map( (link, index) =>
                     <Link to={link.project_link.url} target={link.project_link.target} key={index} className="project-link border-4 border-orange-300 no-underline my-0 inline-block px-7 py-2 w-max rounded-2xl text-center">{link.project_link.title}</Link>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
           </header>
           <section className="flex flex-col gap-4">
-            {restData.acf.project_details !== false && restData.acf.project_details.map( (dropdown, index) =>
+            {restData.acf.project_section.map( section =>
+              <section key={section.section_id} id={section.section_id}>
+                {section.project_section_content.map( content =>
+                  {switch (content.acf_fc_layout) {
+                    case 'heading_2_layout':
+                      return <h2 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{content.heading_2}</h2>
+                    case 'heading_3_layout':
+                      return <h3 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{content.heading_3}</h3>
+                    case 'paragraph_layout':
+                      return <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: content.paragraph}}></div>;
+                    case 'bullet_point_layout':
+                      return ;
+                    case 'persona_quote_layout':
+                      return ;
+                    case 'blockquote_small_layout':
+                      return ;
+                    case 'blockquote_big_layout':
+                      return ;
+                    case 'image_layout':
+                      return ;
+                    case 'image_full_width_layout':
+                      return ;
+                    case 'video_layout':
+                      return ;
+                    case 'persona_card_layout':
+                      return ;
+                    case 'before_after_layout':
+                      return ;
+                    case 'two_column_layout':
+                      return ;
+                    default:
+                      return <p>Not a valid flexible content layout.</p>
+                  }}
+                )}
+              </section>
+            )}
+            {/* {restData.acf.project_details !== false && restData.acf.project_details.map( (dropdown, index) =>
               <details key={index} className="bg-orange-300 rounded-2xl py-4 px-6">
                 <summary className=" uppercase tracking-wider font-bold list-outside pl-4 ml-4 cursor-pointer">{dropdown.dropdown_header}</summary>
                 <div className="bg-orange-100 rounded-2xl py-4 px-6 mt-4 flex flex-col gap-6">
@@ -76,7 +112,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                 )}
                 </div>
               </details>
-            )}
+            )} */}
           </section>
         </article>
       : 
