@@ -53,7 +53,7 @@ function App() {
   return (
     <HelmetProvider context={helmetContext}>
       { isTouchEnabled() ? <></> : <Cursor /> }
-      <div className="max-w-screen-xl flex flex-col mx-auto my-0" >
+      <div className="flex flex-col" >
         <Router>
           <Header />
             <main id="main" className="flex flex-col grow min-h-screen">
