@@ -198,7 +198,7 @@ a:hover {
   transition: rotate 200ms ease;
 }
 
-.site-navigation.toggled .menu-toggle svg path:first-of-type {
+/* .site-navigation.toggled .menu-toggle svg path:first-of-type {
   rotate: -135deg;
 }
 .site-navigation.toggled .menu-toggle svg path:last-of-type {
@@ -223,7 +223,7 @@ a:hover {
 .site-navigation.toggled #header-menu {
   width: 100%;
   right: 0;
-}
+} */
 
 .loading {
   overflow: hidden;
