@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import PageHome from "./pages/PageHome"
 import PageProject from "./pages/PageProject"
+import PageProjectArchive from "./pages/PageProjectArchive"
 import { HelmetProvider } from 'react-helmet-async'
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
 
   return (
     <HelmetProvider context={helmetContext}>
-      { isTouchEnabled() ? <></> : <Cursor /> }
+      {/* { isTouchEnabled() ? <></> : <Cursor /> } */}
       <div className="flex flex-col" >
         <Router>
           <Header />
@@ -60,6 +61,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<PageHome restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage}/>} />
                 <Route path="/project/:slug" element={<PageProject restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
+                <Route path="/archive" element={<PageProjectArchive restBase={restBase} featuredImage={featuredImage} fieldImage={fieldImage} />} />
               </Routes>
             </main>
           <Footer />
