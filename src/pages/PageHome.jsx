@@ -64,22 +64,27 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 </section>
                 <section id="projects" className="max-w-screen-xl mx-auto">
                     <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.projects_heading_pre}<strong>{restData.acf.projects_heading}</strong>{restData.acf.projects_heading_post}</h2>
-                    <div className="projects md:flex md:flex-wrap md:gap-x-4">
+                    <div className="projects md:flex md:flex-wrap md:flex-col md:gap-x-4">
                     {restDataProjects.map( project => 
-                        <article key={project.id} id={`post-${project.id}`} className="project-card h-36 max-w-lg md:max-w-md lg:max-w-xs mb-4 mt-0 mx-auto">
-                            <Link to={`/project/${project.slug}`} className="relative inline-block
-                            bg-orange-200 rounded-2xl p-4 overflow-hidden h-full w-full">
+                        <article key={project.id} id={`post-${project.id}`} className="project-card sm:h-80 lg:h-96 w-full mb-8 mt-0 mx-auto">
+                            <Link to={`/project/${project.slug}`} className="no-underline relative inline-block
+                            bg-orange-200 rounded-2xl p-8 overflow-hidden h-full w-full flex flex-col sm:flex-row gap-x-4">
+                                <div className="w-5/12 flex flex-col justify-between">
+                                    <h3 className="text-3xl lg:text-4xl z-30">{project.title.rendered}</h3>
+                                    <p className="">{project.excerpt.rendered}</p>
+                                    <ul className="">
+                                        {project._embedded?.['wp:term'][1].map( skill =>
+                                            <li key={skill.id} className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                                <div className="flex flex-col w-7/12 justify-center space-between">
                                 {project.featured_media !== 0 && project._embedded &&
                                     <figure 
-                                    className="featured-image relative -right-5 -bottom-11 max-h-32 overflow-hidden rounded-2xl" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                                    className="featured-image relative -right-12 max-h-max overflow-hidden rounded-2xl mb-10" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
                                 }
-                                <h3 className="absolute z-30 top-4">{project.title.rendered}</h3>
-                                <p className="">{project.excerpt.rendered}</p>
-                                <ul>
-                                    {project._embedded['wp:term'][1].map( skill =>
-                                        <li key={skill.id} className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
-                                    )}
-                                </ul>
+                                <p className="absolute bottom-8 right-8 inline-block m-0 mt-4 text-right">Read more &rarr;</p>
+                                </div>
                             </Link>
                         </article>
                     )}

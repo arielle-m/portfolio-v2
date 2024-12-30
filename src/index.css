@@ -289,14 +289,17 @@ a.project-link:hover:first-of-type {
 }
 
 .project-card a figure {
-  transition: bottom 400ms ease, right 400ms ease, filter 300ms ease;
+  transition: right 400ms ease, filter 300ms ease;
   filter: sepia(80%);
 }
 
 .project-card a:hover figure {
   right: -1rem;
-  bottom: -2.25rem;
   filter: sepia(0%);
+}
+
+.project-card .featured-image {
+  height: calc(100% - 2.5rem);
 }
 
 details p {
