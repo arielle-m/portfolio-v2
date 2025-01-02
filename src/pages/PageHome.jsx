@@ -68,8 +68,8 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     {restDataProjects.map( project => 
                         <article key={project.id} id={`post-${project.id}`} className="project-card sm:h-80 lg:h-96 w-full mb-8 mt-0 mx-auto">
                             <Link to={`/project/${project.slug}`} className="no-underline relative inline-block
-                            bg-orange-200 rounded-2xl p-8 overflow-hidden h-full w-full flex flex-col sm:flex-row gap-x-4">
-                                <div className="w-5/12 flex flex-col justify-between">
+                            bg-orange-200 rounded-2xl p-8 overflow-hidden h-full w-full flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 gap-x-4">
+                                <div className="sm:w-5/12 flex flex-col justify-between">
                                     <h3 className="text-3xl lg:text-4xl z-30">{project.title.rendered}</h3>
                                     <p className="">{project.excerpt.rendered}</p>
                                     <ul className="">
@@ -78,12 +78,12 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                                         )}
                                     </ul>
                                 </div>
-                                <div className="flex flex-col w-7/12 justify-center space-between">
+                                <div className="flex flex-col sm:w-7/12 justify-center space-between">
                                 {project.featured_media !== 0 && project._embedded &&
                                     <figure 
-                                    className="featured-image relative -right-12 max-h-max overflow-hidden rounded-2xl mb-10" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                                    className="featured-image relative sm:-right-12 max-h-60 sm:max-h-max overflow-hidden rounded-2xl mb-2 sm:mb-10" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
                                 }
-                                <p className="absolute bottom-8 right-8 inline-block m-0 mt-4 text-right">Read more &rarr;</p>
+                                <p className="sm:absolute sm:bottom-8 sm:right-8 inline-block m-0 mt-4 text-right">Read more <span className="screen-reader-text">about {project.title.rendered} </span>&rarr;</p>
                                 </div>
                             </Link>
                         </article>
