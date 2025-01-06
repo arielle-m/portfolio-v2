@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import { Helmet } from 'react-helmet-async'
+import { NavHashLink } from 'react-router-hash-link'
 
 export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const { slug } = useParams()
@@ -29,9 +30,9 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
       { isLoaded ?
         <article id={`post-${restData.id}`} className="z-0">
           <Helmet>{restData.yoast_head}</Helmet>
-          <header className="mb-8">
+          <header className="mb-8 max-w-screen-xl mx-auto">
             {restData.featured_media !== 0 && restData._embedded &&
-              <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+              <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
             <h1 className="mb-4 mt-8">{restData.title.rendered}</h1>
             <div className="md:flex md:justify-center md:gap-4">
@@ -63,7 +64,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
           </header>
           <section className="flex flex-col gap-4">
             {restData.acf.project_section.map( section =>
-              <section key={section.section_id} id={section.section_id}>
+              <section key={section.section_id} id={section.section_id} className="mx-auto">
                 {section.project_section_content.map( content =>
                   {switch (content.acf_fc_layout) {
                     case 'heading_2_layout':
