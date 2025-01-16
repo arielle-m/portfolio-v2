@@ -65,13 +65,13 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 <section id="projects" className="max-w-screen-xl mx-auto">
                     <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.projects_heading_pre}<strong>{restData.acf.projects_heading}</strong>{restData.acf.projects_heading_post}</h2>
                     <div className="projects md:flex md:flex-wrap md:flex-col md:gap-x-4">
-                    {restDataProjects.map( project => 
+                    {restDataProjects.filter( project => project.featured[0] == 21 ).map( project =>
                         <article key={project.id} id={`post-${project.id}`} className="project-card sm:h-80 lg:h-96 w-full mb-8 mt-0 mx-auto">
                             <Link to={`/project/${project.slug}`} className="no-underline relative inline-block
                             bg-orange-200 rounded-2xl p-8 overflow-hidden h-full w-full flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 gap-x-4">
                                 <div className="sm:w-5/12 flex flex-col justify-between">
                                     <h3 className="text-3xl lg:text-4xl z-30">{project.title.rendered}</h3>
-                                    <p className="">{project.excerpt.rendered}</p>
+                                    <div className="mt-2 max-w-md font-normal" dangerouslySetInnerHTML={{__html: project.excerpt.rendered}}></div>
                                     <ul className="">
                                         {project._embedded?.['wp:term'][1].map( skill =>
                                             <li key={skill.id} className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
