@@ -63,15 +63,17 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     </svg>
                 </section>
                 <section id="projects" className="max-w-screen-xl mx-auto">
-                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.projects_heading_pre}<strong>{restData.acf.projects_heading}</strong>{restData.acf.projects_heading_post}</h2>
+                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8">{restData.acf.projects_heading_pre}<strong>{restData.acf.projects_heading}</strong>{restData.acf.projects_heading_post}</h2>
                     <div className="projects md:flex md:flex-wrap md:flex-col md:gap-x-4">
                     {restDataProjects.filter( project => project.featured[0] == 21 ).map( project =>
-                        <article key={project.id} id={`post-${project.id}`} className="project-card sm:h-80 lg:h-96 w-full mb-8 mt-0 mx-auto">
+                        <article key={project.id} id={`post-${project.id}`} className="project-card sm:h-96 w-full mb-8 mt-0 mx-auto">
                             <Link to={`/project/${project.slug}`} className="no-underline relative inline-block
                             bg-orange-200 rounded-2xl p-8 overflow-hidden h-full w-full flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 gap-x-4">
-                                <div className="sm:w-5/12 flex flex-col justify-between">
-                                    <h3 className="text-3xl lg:text-4xl z-30">{project.title.rendered}</h3>
-                                    <div className="mt-2 max-w-md font-normal" dangerouslySetInnerHTML={{__html: project.excerpt.rendered}}></div>
+                                <div className="sm:w-5/12 flex flex-col justify-between md:py-4">
+                                    <div>
+                                        <h3 className="text-3xl lg:text-4xl z-30">{project.title.rendered}</h3>
+                                        <div className="mt-2 sm:mt-4 max-w-md font-normal" dangerouslySetInnerHTML={{__html: project.excerpt.rendered}}></div>
+                                    </div>
                                     <ul className="">
                                         {project._embedded?.['wp:term'][1].map( skill =>
                                             <li key={skill.id} className="font-normal text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
@@ -81,9 +83,9 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                                 <div className="flex flex-col sm:w-7/12 justify-center space-between">
                                 {project.featured_media !== 0 && project._embedded &&
                                     <figure 
-                                    className="featured-image relative sm:-right-12 max-h-60 sm:max-h-max overflow-hidden rounded-2xl mb-2 sm:mb-10" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                                    className="featured-image relative sm:-right-12 max-h-60 sm:max-h-max overflow-hidden rounded-2xl mb-2 sm:mb-16" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
                                 }
-                                <p className="sm:absolute sm:bottom-8 sm:right-8 inline-block m-0 mt-4 text-right">Read more <span className="screen-reader-text">about {project.title.rendered} </span>&rarr;</p>
+                                <p className="sm:absolute sm:bottom-8 sm:right-8 block m-0 mt-4 text-center sm:text-right bg-orange-300 rounded-full py-2 px-6">Read more <span className="screen-reader-text">about {project.title.rendered} </span>&rarr;</p>
                                 </div>
                             </Link>
                         </article>
@@ -91,31 +93,33 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     </div>
                 </section>
                 <section id="about" className="max-w-screen-xl mx-auto py-8">
-                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.about_heading_pre}<strong>{restData.acf.about_heading}</strong>{restData.acf.about_heading_post}</h2>
+                    <h2 className="skew uppercase font-semibold tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8">{restData.acf.about_heading_pre}<strong>{restData.acf.about_heading}</strong>{restData.acf.about_heading_post}</h2>
+                    <div className="md:flex md:gap-x-12">
                         <div className="md:flex md:gap-4">
-                            {restData.acf.about_image &&
+                            {/* {restData.acf.about_image &&
                                 <figure className="about-image rounded-2xl max-h-80 w-9/12 overflow-hidden mb-4 mt-0 mx-auto md:w-full md:max-h-none md:h-full" dangerouslySetInnerHTML={fieldImage(restData.acf.about_image)} loading="lazy"></figure>
-                            }
+                            } */}
                             <div className="md:w-full">
                                 <div dangerouslySetInnerHTML={{__html: restData.acf.about_paragraph}}></div>
                                 <div dangerouslySetInnerHTML={{__html: restData.acf.about_hobbies}}></div>
                             </div>
                         </div>
-                    <article className="skills">
-                        <h3 className="uppercase tracking-widest md:text-2xl">{restData.acf.skills_heading}</h3>
-                            <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDevelopment[0]._embedded.up[0].name}</h4>
-                            <ul>
-                            {restDataSkillDevelopment.map (skilldevelopment =>
-                                <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.name}</li>
-                            )}
-                            </ul>
-                            <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDesign[0]._embedded.up[0].name}</h4>
-                            <ul>
-                            {restDataSkillDesign.map (skilldesign =>
-                                <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.name}</li>
-                            )}
-                            </ul>
-                    </article>
+                        <article className="skills">
+                            <h3 className="uppercase tracking-widest md:text-2xl">{restData.acf.skills_heading}</h3>
+                                <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDevelopment[0]._embedded.up[0].name}</h4>
+                                <ul>
+                                {restDataSkillDevelopment.map (skilldevelopment =>
+                                    <li key={skilldevelopment.id} id={`post-${skilldevelopment.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldevelopment.name}</li>
+                                )}
+                                </ul>
+                                <h4 className="lowercase font-bold tracking-tight mt-2">{restDataSkillDesign[0]._embedded.up[0].name}</h4>
+                                <ul>
+                                {restDataSkillDesign.map (skilldesign =>
+                                    <li key={skilldesign.id} id={`post-${skilldesign.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skilldesign.name}</li>
+                                )}
+                                </ul>
+                        </article>
+                    </div>
                 </section>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="-mb-1">
                     {/* <path fill="#FB923C" d="M0,224L48,240C96,256,192,288,288,288C384,288,480,256,576,250.7C672,245,768,267,864,266.7C960,267,1056,245,1152,245.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path> */}
@@ -145,7 +149,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 </div> */}
                 <section id="contact" className="bg-orange-400">
                     <div className="py-8 text-center mx-auto lg:w-6/12">
-                        <h2 className="skew uppercase font-semibold tracking-wider text-5xl lg:text-7xl mb-4">{restData.acf.contact_heading_pre}<strong>{restData.acf.contact_heading}</strong>{restData.acf.contact_heading_post}</h2>
+                        <h2 className="skew uppercase font-semibold tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8">{restData.acf.contact_heading_pre}<strong>{restData.acf.contact_heading}</strong>{restData.acf.contact_heading_post}</h2>
                         <div className="text-lg" dangerouslySetInnerHTML={{__html: restData.acf.contact_paragraph}}></div>
                         <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target} className="contact-button no-underline my-0 mx-auto block px-8 py-2 w-max bg-orange-300 rounded-full">{restData.acf.contact_button.title}</Link>
                     </div>
