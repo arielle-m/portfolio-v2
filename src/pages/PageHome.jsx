@@ -46,7 +46,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 <section id="hero" className="max-w-screen-xl mx-auto relative h-full my-4 md:my-10 lg:my-18 overflow-x-clip lg:overflow-visible">
                     <div className=" flex flex-col justify-start mb-12 md:flex-row md:items-end md:justify-evenly">
                         <div className="z-10">
-                            <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <br /><strong className="wide block w-min text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wide">{restData.acf.name}</strong></h1>
+                            <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <strong className="wide block w-min text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wide">{restData.acf.name}</strong></h1>
                             <Link to={restData.acf.landing_button.url} target={restData.acf.landing_button.target} className="contact-button hidden md:block no-underline mx-auto mt-24 px-14 py-2 w-max bg-orange-300 rounded-full text-xl">{restData.acf.landing_button.title}</Link>
                         </div>
                         <div className="z-10">
