@@ -30,7 +30,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
       { isLoaded ?
         <article id={`post-${restData.id}`} className="z-0">
           <Helmet>{restData.yoast_head}</Helmet>
-          <nav className="site-navigation project-navigation bg-orange-700 fixed bottom-0 left-0 w-full h-16 text-center flex justify-center items-center lg:top-2/4 lg:flex-col lg:w-min lg:bg-transparent">
+          {/* <nav className="site-navigation project-navigation bg-orange-700 fixed bottom-0 left-0 w-full h-16 text-center flex justify-center items-center lg:top-2/4 lg:flex-col lg:w-min lg:bg-transparent">
             <ul id="header-menu" className="z-30 w-full lg:text-left">
               {restData.acf.project_section.map( section => 
                 <li className="inline-block w-3/12 lg:w-min">
@@ -38,35 +38,63 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                   </li>
               )}
             </ul>
-          </nav>
-          <header className="mb-8 max-w-screen-xl mx-auto">
+          </nav> */}
+          <header className="mb-8 max-w-screen-xl mx-auto px-8">
             {restData.featured_media !== 0 && restData._embedded &&
-              <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+              // <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+              <figure className="featured-image project rounded-b-3xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
-            <h1 className="mb-4 mt-8">{restData.title.rendered}</h1>
-            <div className="md:flex md:justify-center md:gap-4">
-              <table className="border-collapse flex md:min-w-96 align-middle">
+            <h1 className="skew uppercase font-semibold tracking-wide sm:tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8 mt-8">{restData.title.rendered}</h1>
+            <div className="md:flex md:justify-center md:gap-8">
+              {/* <table className="border-collapse flex md:min-w-96 align-middle">
                 <thead className="flex flex-col text-right text-wrap">
-                  <tr className="inline-flex flex-col pr-2 py-1">
+                  <tr className="inline-flex flex-col pr-2 py-1 h-min">
+                    <th>Initiative</th>
                     <th>Role</th>
                     <th>Tools</th>
-                    <th>Team Size</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="inline-flex flex-col text-left pl-2 py-1">
-                    {/* <td>{restData.acf.project_info.role}</td> */}
-                    {/* <td>{restData.acf.project_info.skills}</td> */}
-                    {/* <td>{restData.acf.project_info.team_size}</td> */}
+                    <td>{restData.acf.project_info.role}</td>
+                    <td>
+                      <ul>
+                        {restData._embedded['wp:term'][1].map (skill =>
+                            <li key={skill.id} id={`post-${skill.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
+                        )}
+                        </ul>
+                      </td>
+                  </tr>
+                </tbody>
+              </table> */}
+              <table className="border-collapse md:min-w-96 align-middle">
+                <tbody>
+                  {/* <tr className="">
+                    <th className="uppercase text-right text-wrap pr-2 py-2">Initiative</th>
+                  </tr> */}
+                  <tr className="">
+                    <th className="uppercase text-right text-wrap pr-2 py-2 align-top">Role</th>
+                    <td className="text-left pl-2 py-2 capitalize">{restData.acf.project_info.role}</td>
+                  </tr>
+                  <tr className="">
+                    <th className="uppercase text-right text-wrap pr-2 py-2 align-top">Tools</th>
+                    <td className="py-2">
+                      <ul>
+                        {restData._embedded['wp:term'][1].map (skill =>
+                            <li key={skill.id} id={`post-${skill.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
+                        )}
+                        </ul>
+                      </td>
                   </tr>
                 </tbody>
               </table>
               <div className="md:w-11/12">
-                {/* <p>{restData.acf.project_overview}</p> */}
-                <div className="flex gap-4">
-                  {/* {restData.acf.project_links !== false && restData.acf.project_links.map( (link, index) =>
-                    <Link to={link.project_link.url} target={link.project_link.target} key={index} className="project-link border-4 border-orange-300 no-underline my-0 inline-block px-7 py-2 w-max rounded-2xl text-center">{link.project_link.title}</Link>
-                  )} */}
+                <p>{restData.acf.project_description}</p>
+                <div className="flex flex-col sm:flex-row text-center gap-4">
+                  <Link to={restData.acf.project_link_main.url} target={restData.acf.project_link_main.target} className="project-link no-underline block px-8 py-2  w-full sm:w-max bg-orange-300 rounded-full">{restData.acf.project_link_main.title}</Link>
+                  {restData.acf.project_links !== false && restData.acf.project_links.map( (link, index) =>
+                    <Link to={link.project_link.url} target={link.project_link.target} key={index} className="project-link no-underline block px-8 py-2 w-full sm:w-max outline outline-4 outline-orange-300 rounded-full">{link.project_link.title}</Link>
+                  )}
                 </div>
               </div>
             </div>
