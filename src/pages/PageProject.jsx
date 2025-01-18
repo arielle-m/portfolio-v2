@@ -30,6 +30,15 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
       { isLoaded ?
         <article id={`post-${restData.id}`} className="z-0">
           <Helmet>{restData.yoast_head}</Helmet>
+          <nav className="site-navigation project-navigation bg-orange-700 fixed bottom-0 left-0 w-full h-16 text-center flex justify-center items-center lg:top-2/4 lg:flex-col lg:w-min lg:bg-transparent">
+            <ul id="header-menu" className="z-30 w-full lg:text-left">
+              {restData.acf.project_section.map( section => 
+                <li className="inline-block w-3/12 lg:w-min">
+                  <NavHashLink to={`/project/${restData.slug}/#${section.section_id}`} smooth end className="no-underline uppercase font-bold tracking-widest text-right text-orange-100 text-2xl hover:text-orange-300 lg:text-orange-600"><span>&mdash;</span><span className="">{section.section_label}</span></NavHashLink>
+                  </li>
+              )}
+            </ul>
+          </nav>
           <header className="mb-8 max-w-screen-xl mx-auto">
             {restData.featured_media !== 0 && restData._embedded &&
               <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
