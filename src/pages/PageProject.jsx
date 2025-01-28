@@ -39,7 +39,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               )}
             </ul>
           </nav> */}
-          <header className="mb-8 max-w-screen-xl mx-auto">
+          <header className="mb-8 max-w-(--breakpoint-xl) mx-auto">
             {restData.featured_media !== 0 && restData._embedded &&
               // <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
               <figure className="featured-image project rounded-b-3xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>

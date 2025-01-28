@@ -43,7 +43,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
         { isLoaded ?
             <article id={`page-${restData.id}`} className="z-0">
                 <Helmet>{restData.yoast_head}</Helmet>
-                <section id="hero" className="max-w-screen-xl mx-auto relative h-full my-4 md:my-10 lg:my-18 overflow-x-clip lg:overflow-visible">
+                <section id="hero" className="max-w-(--breakpoint-xl) mx-auto relative h-full my-4 md:my-10 lg:my-18 overflow-x-clip lg:overflow-visible">
                     <div className=" flex flex-col justify-start mb-12 md:flex-row md:items-end md:justify-evenly">
                         <div className="z-10">
                             <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <strong className="wide block w-min text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wide">{restData.acf.name}</strong></h1>
@@ -59,10 +59,10 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                         <HashLink to={restData.acf.landing_button.url}  smooth className="contact-button block md:hidden no-underline mt-3 px-8 py-2 w-max bg-orange-300 rounded-full z-10">{restData.acf.landing_button.title}</HashLink>
                     </div>
                     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute z-0 max-w-full h-full bottom-24 -right-36 scale-y-110 scale-x-150  md:bottom-20 md:right-24 lg:bottom-24 lg:right-60 md:scale-y-110 md:scale-x-150">
-                        <path fill="#FB923C" d="M46.2,-43.8C61.7,-30.8,77.3,-15.4,79.7,2.4C82.1,20.2,71.4,40.5,55.9,51.5C40.5,62.6,20.2,64.5,4.8,59.7C-10.6,54.9,-21.2,43.3,-34.8,32.3C-48.5,21.2,-65.2,10.6,-70.8,-5.6C-76.3,-21.8,-70.8,-43.6,-57.2,-56.6C-43.6,-69.7,-21.8,-74.1,-3.2,-70.9C15.4,-67.7,30.8,-56.9,46.2,-43.8Z" transform="translate(100 100)" />
+                        <path className="fill-orange-400" d="M46.2,-43.8C61.7,-30.8,77.3,-15.4,79.7,2.4C82.1,20.2,71.4,40.5,55.9,51.5C40.5,62.6,20.2,64.5,4.8,59.7C-10.6,54.9,-21.2,43.3,-34.8,32.3C-48.5,21.2,-65.2,10.6,-70.8,-5.6C-76.3,-21.8,-70.8,-43.6,-57.2,-56.6C-43.6,-69.7,-21.8,-74.1,-3.2,-70.9C15.4,-67.7,30.8,-56.9,46.2,-43.8Z" transform="translate(100 100)" />
                     </svg>
                 </section>
-                <section id="projects" className="max-w-screen-xl mx-auto">
+                <section id="projects" className="max-w-(--breakpoint-xl) mx-auto">
                     <h2 className="skew uppercase font-semibold tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8">{restData.acf.projects_heading_pre}<strong>{restData.acf.projects_heading}</strong>{restData.acf.projects_heading_post}</h2>
                     <div className="projects md:flex md:flex-wrap md:flex-col md:gap-x-4">
                     {restDataProjects.filter( project => project.featured[0] == 21 ).map( project =>
@@ -92,7 +92,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     )}
                     </div>
                 </section>
-                <section id="about" className="max-w-screen-xl mx-auto py-8">
+                <section id="about" className="max-w-(--breakpoint-xl) mx-auto py-8">
                     <h2 className="skew uppercase font-semibold tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8">{restData.acf.about_heading_pre}<strong>{restData.acf.about_heading}</strong>{restData.acf.about_heading_post}</h2>
                     <div className="md:flex md:gap-x-12">
                         <div className="md:flex md:gap-4">
@@ -123,7 +123,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                 </section>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="-mb-1">
                     {/* <path fill="#FB923C" d="M0,224L48,240C96,256,192,288,288,288C384,288,480,256,576,250.7C672,245,768,267,864,266.7C960,267,1056,245,1152,245.3C1248,245,1344,267,1392,277.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path> */}
-                    <path fill="#FB923C" d="M0,96L48,90.7C96,85,192,75,288,85.3C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                    <path className="fill-orange-400" d="M0,96L48,90.7C96,85,192,75,288,85.3C384,96,480,128,576,160C672,192,768,224,864,224C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg>
                 {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 690" className="-mb-1 max-h-64 w-full">
                     <defs>
