@@ -1,9 +1,8 @@
 @charset "utf-8";
 
-@import "tailwindcss";
-/* @import "tailwindcss/base"; */
-/* @import "tailwindcss/components"; */
-/* @import "tailwindcss/utilities"; */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
   /* colors */
@@ -336,15 +335,6 @@ a.project-link:hover:first-of-type {
 .project-card a:hover figure {
   right: -1rem;
   filter: sepia(0%);
-}
-
-.project-navigation ul li a span:last-of-type {
-  transition: opacity 300ms ease;
-  opacity:0;
-}
-
-.project-navigation ul li a:hover span:last-of-type {
-  opacity:1;
 }
 
 .project-card .featured-image {
