@@ -39,13 +39,13 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               )}
             </ul>
           </nav> */}
-          <header className="mb-8 max-w-screen-xl mx-auto px-8">
+          <header className="mb-8 max-w-screen-xl mx-auto">
             {restData.featured_media !== 0 && restData._embedded &&
               // <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
               <figure className="featured-image project rounded-b-3xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
-            <h1 className="skew uppercase font-semibold tracking-wide sm:tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8 mt-8">{restData.title.rendered}</h1>
-            <div className="md:flex md:justify-center md:gap-8">
+            <h1 className="skew uppercase font-semibold tracking-wide sm:tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8 mt-8 px-8">{restData.title.rendered}</h1>
+            <div className="md:flex md:justify-center md:gap-8 px-8">
               {/* <table className="border-collapse flex md:min-w-96 align-middle">
                 <thead className="flex flex-col text-right text-wrap">
                   <tr className="inline-flex flex-col pr-2 py-1 h-min">
