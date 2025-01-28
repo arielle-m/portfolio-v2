@@ -72,7 +72,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                                 <div className="sm:w-5/12 flex flex-col justify-between md:py-4">
                                     <div>
                                         <h3 className="text-3xl lg:text-4xl z-30">{project.title.rendered}</h3>
-                                        <div className="mt-2 sm:mt-4 max-w-md font-normal" dangerouslySetInnerHTML={{__html: project.excerpt.rendered}}></div>
+                                        <p className="mt-2 sm:mt-4 max-w-md font-normal">{project.acf.project_description}</p>
                                     </div>
                                     <ul className="">
                                         {project._embedded?.['wp:term'][1].map( skill =>
