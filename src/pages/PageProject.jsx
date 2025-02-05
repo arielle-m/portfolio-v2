@@ -44,8 +44,10 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               // <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
               <figure className="featured-image project rounded-b-3xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
-            <h1 className="skew uppercase font-semibold tracking-wide sm:tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8 mt-8 px-8">{restData.title.rendered}</h1>
-            <div className="md:flex md:justify-center md:gap-8 px-8">
+            <div className="max-w-screen overflow-x-hidden">
+              <h1 className="skew uppercase font-semibold tracking-wide sm:tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8 mt-8 px-8">{restData.title.rendered}</h1>
+            </div>
+            <div className="lg:flex lg:justify-center lg:gap-8 px-8">
               {/* <table className="border-collapse flex md:min-w-96 align-middle">
                 <thead className="flex flex-col text-right text-wrap">
                   <tr className="inline-flex flex-col pr-2 py-1 h-min">
@@ -80,9 +82,41 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                     <th className="uppercase text-right text-wrap pr-2 py-2 align-top">Tools</th>
                     <td className="py-2">
                       <ul>
-                        {restData._embedded['wp:term'][1].map (skill =>
+                        {/* {restData._embedded['wp:term'][1].map (skill =>
                             <li key={skill.id} id={`post-${skill.id}`} className="text-orange-100 bg-orange-900 rounded-full inline-block px-4 py-1 my-1 mx-1">{skill.name}</li>
-                        )}
+                        )} */}
+                        {/* { restData._embedded['wp:term'][1].map (skill => {
+                          const i = 0
+
+                          if (i + 1 !== restData._embedded['wp:term'][1].map.length) {
+                            <li key={skill.id} id={`post-${skill.id}`} className="inline-block after:content-[',_']">{skill.name}</li>
+                          } else {
+                            <li key={skill.id} id={`post-${skill.id}`} className="inline-block">{skill.name}</li>
+                          }
+                        })} */}
+                        {/* { restData._embedded['wp:term'][1].map ((skill, i, arr) => {
+                          if (i + 1 !== arr.length) {
+                            <li key={skill.id} id={`post-${skill.id}`} className="inline-block after:content-[',_']">{skill.name}</li>
+                          } else {
+                            <li key={skill.id} id={`post-${skill.id}`} className="inline-block">{skill.name}</li>
+                          }
+                        })} */}
+                        {/* { restData._embedded['wp:term'][1].map ((skill, i) => {
+                          if (i + 1 !== restData._embedded['wp:term'][1].length ) {
+                            <li key={skill.id} id={`post-${skill.id}`} className="inline-block after:content-[',_']">{skill.name}</li>
+                          } else {
+                            <li key={skill.id} id={`post-${skill.id}`} className="inline-block">{skill.name}</li>
+                          }
+                        })} */}
+                        {/* { restData._embedded['wp:term'][1].map ((skill, i) => {
+                          i + 1 !== restData._embedded['wp:term'][1].length && 
+                          
+                          // if (i + 1 !== restData._embedded['wp:term'][1].length ) {
+                          //   <li key={skill.id} id={`post-${skill.id}`} className="inline-block after:content-[',_']">{skill.name}</li>
+                          // } else {
+                          //   <li key={skill.id} id={`post-${skill.id}`} className="inline-block">{skill.name}</li>
+                          // }
+                        })} */}
                         </ul>
                       </td>
                   </tr>
