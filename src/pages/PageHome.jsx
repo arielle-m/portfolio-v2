@@ -47,7 +47,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     <div className=" flex flex-col justify-start mb-12 md:flex-row md:items-end md:justify-evenly">
                         <div className="z-10">
                             <h1 className="uppercase font-semibold text-3xl tracking-widest mb-2 mt-6 ">{restData.acf.greeting} <strong className="wide block w-min text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-wide">{restData.acf.name}</strong></h1>
-                            <Link to={restData.acf.landing_button.url} target={restData.acf.landing_button.target} className="contact-button hidden md:block no-underline mx-auto mt-24 px-14 py-2 w-max bg-orange-300 rounded-full text-xl">{restData.acf.landing_button.title}</Link>
+                            <Link to={restData.acf.landing_button.url} target={restData.acf.landing_button.target} className="contact-button hidden md:block no-underline mx-auto mt-24 px-16 py-2 w-max bg-orange-300 rounded-full text-xl">{restData.acf.landing_button.title}</Link>
                         </div>
                         <div className="z-10">
                             <h2 className="gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{restData.acf.occupation}</h2>
@@ -56,7 +56,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                             {/* <h2 className="caveat font-bold text-5xl lowercase leading-10 tracking-wider my-2 max-w-md mt-3">{restData.acf.occupation}</h2> */}
                             <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: restData.acf.pitch}}></div>
                         </div>
-                        <HashLink to={restData.acf.landing_button.url}  smooth className="contact-button block md:hidden no-underline mt-3 px-8 py-2 w-max bg-orange-300 rounded-full z-10">{restData.acf.landing_button.title}</HashLink>
+                        <HashLink to={restData.acf.landing_button.url}  smooth className="contact-button block md:hidden no-underline mt-3 px-16 py-2 w-full sm:w-[75%] sm:mx-auto text-center bg-orange-300 rounded-full z-10">{restData.acf.landing_button.title}</HashLink>
                     </div>
                     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute z-0 max-w-full h-full bottom-24 -right-36 scale-y-110 scale-x-150  md:bottom-20 md:right-24 lg:bottom-24 lg:right-60 md:scale-y-110 md:scale-x-150">
                         <path className="fill-orange-400" d="M46.2,-43.8C61.7,-30.8,77.3,-15.4,79.7,2.4C82.1,20.2,71.4,40.5,55.9,51.5C40.5,62.6,20.2,64.5,4.8,59.7C-10.6,54.9,-21.2,43.3,-34.8,32.3C-48.5,21.2,-65.2,10.6,-70.8,-5.6C-76.3,-21.8,-70.8,-43.6,-57.2,-56.6C-43.6,-69.7,-21.8,-74.1,-3.2,-70.9C15.4,-67.7,30.8,-56.9,46.2,-43.8Z" transform="translate(100 100)" />
@@ -126,7 +126,7 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
                     <div className="py-8 text-center mx-auto lg:w-6/12">
                         <h2 className="skew uppercase font-semibold tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8">{restData.acf.contact_heading_pre}<strong>{restData.acf.contact_heading}</strong>{restData.acf.contact_heading_post}</h2>
                         <div className="text-lg" dangerouslySetInnerHTML={{__html: restData.acf.contact_paragraph}}></div>
-                        <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target} className="contact-button no-underline my-0 mx-auto block px-8 py-2 w-max bg-orange-300 rounded-full">{restData.acf.contact_button.title}</Link>
+                        <Link to={restData.acf.contact_button.url} target={restData.acf.contact_button.target} className="contact-button no-underline my-0 mx-auto block px-16 py-2 w-full sm:w-[75%] md:w-max sm:mx-auto text-center bg-orange-300 rounded-full">{restData.acf.contact_button.title}</Link>
                     </div>
                 </section>
             </article>
