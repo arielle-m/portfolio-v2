@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     // <footer className="bg-orange-400 text-center py-3 mb-16 lg:mb-0">
-    <footer className="bg-orange-400 text-center py-3">
+    <footer className="bg-orange-300 text-center py-3">
       {/* className has mt-5 but i removed it for now */}
       <nav>
         <ul className="flex justify-center gap-x-3">
