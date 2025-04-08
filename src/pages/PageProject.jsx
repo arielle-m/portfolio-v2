@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
@@ -28,8 +28,13 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   return (
     <>
       { isLoaded ?
-        <article id={`post-${restData.id}`} className="z-0">
-          <Helmet>{restData.yoast_head}</Helmet>
+        <article id={`post-${restData.id}`} className="z-0 pb-8">
+          <Helmet>
+            {/* <Fragment dangerouslySetInnerHTML={restData.yoast_head}></Fragment> */}
+            {/* <script dangerouslySetInnerHTML={restData.yoast_head} /> */}
+            <title>{restData.yoast_head_json.title}</title>
+            <meta name="robots" content={restData.yoast_head_json.index} />
+          </Helmet>
           {/* <nav className="site-navigation project-navigation bg-orange-700 fixed bottom-0 left-0 w-full h-16 text-center flex justify-center items-center lg:top-2/4 lg:flex-col lg:w-min lg:bg-transparent">
             <ul id="header-menu" className="z-30 w-full lg:text-left">
               {restData.acf.project_section.map( section => 
@@ -42,7 +47,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
           <header className="mb-8 max-w-(--breakpoint-xl) mx-auto">
             {restData.featured_media !== 0 && restData._embedded &&
               // <figure className="featured-image project rounded-2xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
-              <figure className="featured-image project rounded-b-3xl overflow-hidden mx-auto my-0 max-h-screen" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
+              <figure className="featured-image project rounded-b-3xl overflow-hidden mx-auto my-0 max-h-[65vh]" dangerouslySetInnerHTML={featuredImage(restData._embedded['wp:featuredmedia'][0])}></figure>
             }
             <div className="max-w-screen overflow-x-hidden">
               <h1 className="skew uppercase font-semibold tracking-wide sm:tracking-wider text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-8 mt-8 px-8">{restData.title.rendered}</h1>
