@@ -42,7 +42,9 @@ export default function PageHome( {restBase, featuredImage, fieldImage} ) {
       <>
         { isLoaded ?
             <article id={`page-${restData.id}`} className="z-0">
-                <Helmet>{restData.yoast_head}</Helmet>
+                <Helmet>
+                    <title>Arielle Marin &bull; Developer &amp; Designer</title>
+                </Helmet>
                 <section id="hero" className="max-w-(--breakpoint-xl) mx-auto relative h-full my-4 md:my-10 lg:my-18 overflow-x-clip lg:overflow-visible">
                     <div className=" flex flex-col justify-start mb-12 md:flex-row md:items-end md:justify-evenly">
                         <div className="z-10">
