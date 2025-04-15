@@ -319,9 +319,75 @@
     width: auto;
     z-index: 100000;
   }
+
+
+  /* Custom Styles -------------------- */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-nunito);
+    font-weight: var(--font-medium);
+    color: var(--color-orange-950);
+  }
+  
+  h1, h2 {
+    font-family: var(--font-bagel-fat-one);
+  }
+  
+  h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+  
+  h1>strong,
+  section>h2,
+  section#contact>div>h2 {
+    color: transparent;
+    -webkit-text-stroke: 0.1875rem var(--color-orange-950);
+  }
+  @media (min-width: 64em) {
+    h1>strong,
+    section>h2,
+    section#contact>div>h2 {
+      -webkit-text-stroke: 0.25rem var(--color-orange-950);
+    }
+  }
+  
+  section>h2,
+  section#contact>div>h2 {
+    -webkit-text-stroke: 0.15625rem var(--color-orange-950);
+  }
+  @media (min-width: 64em) {
+    section>h2,
+    section#contact>div>h2 {
+      -webkit-text-stroke: 0.21875rem var(--color-orange-950);
+    }
+  }
+  
+  h2>strong,
+  h2.project-content {
+    color: var(--dark2);
+    -webkit-text-stroke: 0;
+  }
+  
+  /* h2 {
+    font-size: 2rem;
+  } */
+  
+  h3 {
+    font-weight: 900;
+    /* font-size: 1.375rem; */
+  }
+  
+  h4 {
+    font-family: "Gaegu", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1.675rem;
+    font-weight: 700;
+  }
+  
+  html {
+    font-family: var(--font-nunito);
+  }
 }
 
-/* Custom Styles -------------------- */
 @theme {
   --color-orange-50: #fff7ed;
   --color-orange-100: #ffedd5;
@@ -351,9 +417,6 @@
   --secondary: #f68500;
   --accent: #ffd27a;
 
-  font-family: Nunito, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light /* dark */;
@@ -416,77 +479,6 @@ body,
 .gaegu {
   font-family: "Gaegu", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: bold;
-}
-
-.wide {
-  transform-origin: center left;
-  transform: scaleX(1.125);
-}
-
-.skew {
-  transform-origin: center left;
-  transform: skewX(-10deg);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  color: var(--dark2);
-}
-
-h1, h2 {
-  font-family: "Bagel Fat One", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-h1 {
-  font-size: 4rem;
-  line-height: 1.2;
-}
-
-h1>strong,
-section>h2,
-section#contact>div>h2 {
-  color: transparent;
-  -webkit-text-stroke: 0.1875rem var(--dark2);
-}
-@media (min-width: 64em) {
-  h1>strong,
-  section>h2,
-  section#contact>div>h2 {
-    -webkit-text-stroke: 0.25rem var(--dark2);
-  }
-}
-
-section>h2,
-section#contact>div>h2 {
-  -webkit-text-stroke: 0.15625rem var(--dark2);
-}
-@media (min-width: 64em) {
-  section>h2,
-  section#contact>div>h2 {
-    -webkit-text-stroke: 0.21875rem var(--dark2);
-  }
-}
-
-h2>strong,
-h2.project-content {
-  color: var(--dark2);
-  -webkit-text-stroke: 0;
-}
-
-/* h2 {
-  font-size: 2rem;
-} */
-
-h3 {
-  font-weight: 900;
-  /* font-size: 1.375rem; */
-}
-
-h4 {
-  font-family: "Gaegu", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1.675rem;
-  font-weight: 700;
 }
 
 p {
