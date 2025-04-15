@@ -11,6 +11,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   const [restData, setData] = useState([])
   const [isLoaded, setLoadStatus] = useState(false)
 
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(restPath)
@@ -28,12 +29,10 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
   return (
     <>
       { isLoaded ?
-        <article id={`post-${restData.id}`} className="z-0 pb-8">
+        <article id={`post-${restData.id}`} className="z-0">
           <Helmet>
-            {/* <Fragment dangerouslySetInnerHTML={restData.yoast_head}></Fragment> */}
-            {/* <script dangerouslySetInnerHTML={restData.yoast_head} /> */}
-            <title>{restData.yoast_head_json.title}</title>
-            <meta name="robots" content={restData.yoast_head_json.index} />
+            <title>{restData.title.rendered} &bull; Arielle Marin</title>
+            {/* <meta name="robots" content={restData.yoast_head_json.index} /> */}
           </Helmet>
           {/* <nav className="site-navigation project-navigation bg-orange-700 fixed bottom-0 left-0 w-full h-16 text-center flex justify-center items-center lg:top-2/4 lg:flex-col lg:w-min lg:bg-transparent">
             <ul id="header-menu" className="z-30 w-full lg:text-left">
@@ -145,14 +144,32 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                   {switch (content.acf_fc_layout) {
                     case 'heading_2_layout':
                       return <h2 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{content.heading_2}</h2>
+                    case 'hidden_heading_2_layout':
+                      return <h2 className="screen-reader-text">{content.hidden_heading_2}</h2>
                     case 'heading_3_layout':
                       return <h3 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{content.heading_3}</h3>
                     case 'paragraph_layout':
                       return <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: content.paragraph}}></div>;
                     case 'bullet_point_layout':
-                      return ;
+                      return <ul>
+                        {content.bullet_point_loop.map( bullet_point =>
+                          <div className="py-3 flex items-center">
+                            <div className="text-3xl h-max">{bullet_point.bp_emoji}</div>
+                            <div className="pl-5 max-w-md" dangerouslySetInnerHTML={{__html: bullet_point.bp_content}}></div>
+                          </div>
+                         )}
+                      </ul> ;
                     case 'persona_quote_layout':
-                      return ;
+                      return <div className="max-w-[50%]">
+                        {/* {content.persona_quote_loop.map( persona_quote =>
+                          <div className="py-3 flex items-center odd:flex-row even:flex-row-reverse max-w-[50%]">
+                            {persona_quote.pq_image &&
+                              <figure className="persona-image rounded-2xl max-h-42 w-3/12 overflow-hidden mb-4 mt-0" dangerouslySetInnerHTML={fieldImage(persona_quote.pq_image)} loading="lazy"></figure>
+                            }
+                            <div className="pl-5 max-w-md" dangerouslySetInnerHTML={{__html: persona_quote.pq_content}}></div>
+                          </div>
+                         )} */}
+                      </div>;
                     case 'blockquote_small_layout':
                       return ;
                     case 'blockquote_big_layout':
@@ -191,6 +208,7 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
               </details>
             )} */}
           </section>
+          <div className="box h-60 bg-orange-400 -mt-24"></div>
         </article>
       : 
         <Loading /> 
