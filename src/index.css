@@ -322,6 +322,16 @@
 
 
   /* Custom Styles -------------------- */
+  .wide {
+    transform-origin: center left;
+    transform: scaleX(1.125);
+  }
+  
+  .skew {
+    transform-origin: center left;
+    transform: skewX(-10deg);
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-nunito);
     font-weight: var(--font-medium);
