@@ -139,17 +139,17 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
           </header>
           <section className="flex flex-col gap-4">
             {restData.acf.project_section.map( section =>
-              <section key={section.section_id} id={section.section_id} className="mx-auto">
+              <section key={section.section_id} id={section.section_id} className="mx-auto flex flex-col items-center">
                 {section.project_section_content.map( content =>
                   {switch (content.acf_fc_layout) {
                     case 'heading_2_layout':
-                      return <h2 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{content.heading_2}</h2>
+                      return <h2 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight w-md mt-3 mb-4">{content.heading_2}</h2>
                     case 'hidden_heading_2_layout':
                       return <h2 className="screen-reader-text">{content.hidden_heading_2}</h2>
                     case 'heading_3_layout':
                       return <h3 className="project-content gaegu text-3xl lg:text-4xl leading-7 lg:leading-8 lowercase tracking-tight max-w-md mt-3 mb-4">{content.heading_3}</h3>
                     case 'paragraph_layout':
-                      return <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: content.paragraph}}></div>;
+                      return <div className="mt-2 w-md" dangerouslySetInnerHTML={{__html: content.paragraph}}></div>;
                     case 'bullet_point_layout':
                       return <ul className="max-w-md">
                         {content.bullet_point_loop.map( bullet_point =>
@@ -160,20 +160,24 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                          )}
                       </ul> ;
                     case 'persona_quote_layout':
-                      return <div className="max-w-md">
+                      return <div className="max-w-md flex flex-col gap-4">
                         {content.persona_quote_loop.map( persona_quote =>
-                          <div className="py-3 flex items-center odd:flex-row even:flex-row-reverse">
+                          <div className="py-3 px-3 flex items-center justify-between odd:flex-row even:flex-row-reverse bg-orange-100 rounded-2xl">
                             {persona_quote.pq_image &&
-                              <figure className="persona-image rounded-2xl max-h-42 w-3/12 overflow-hidden mb-4 mt-0" dangerouslySetInnerHTML={fieldImage(persona_quote.pq_image)} loading="lazy"></figure>
+                              <figure className="persona-image max-h-42 w-3/12 overflow-hidden mb-4 mt-0" dangerouslySetInnerHTML={fieldImage(persona_quote.pq_image)} loading="lazy"></figure>
                             }
-                            <div className="pl-5 max-w-md" dangerouslySetInnerHTML={{__html: persona_quote.pq_content}}></div>
+                            <div className="pl-5 pr-5 max-w-md" dangerouslySetInnerHTML={{__html: persona_quote.pq_content}}></div>
                           </div>
                          )}
                       </div>;
                     case 'blockquote_small_layout':
-                      return ;
+                      return <div className="max-w-md pl-6 border-l-4 border-orange-300 my-4 font-semibold">
+                        {content.blockquote_small}
+                      </div>;
                     case 'blockquote_big_layout':
-                      return ;
+                      return <div className="max-w-xl my-4 px-6 py-12 bg-orange-100 rounded-2xl text-xl text-center font-bold">
+                        {content.blockquote_big}
+                      </div>;
                     case 'image_layout':
                       return ;
                     case 'image_full_width_layout':
