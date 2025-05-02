@@ -151,24 +151,24 @@ export default function PageProject( {restBase, featuredImage, fieldImage} ) {
                     case 'paragraph_layout':
                       return <div className="mt-2 max-w-md" dangerouslySetInnerHTML={{__html: content.paragraph}}></div>;
                     case 'bullet_point_layout':
-                      return <ul>
+                      return <ul className="max-w-md">
                         {content.bullet_point_loop.map( bullet_point =>
                           <div className="py-3 flex items-center">
                             <div className="text-3xl h-max">{bullet_point.bp_emoji}</div>
-                            <div className="pl-5 max-w-md" dangerouslySetInnerHTML={{__html: bullet_point.bp_content}}></div>
+                            <div className="pl-5" dangerouslySetInnerHTML={{__html: bullet_point.bp_content}}></div>
                           </div>
                          )}
                       </ul> ;
                     case 'persona_quote_layout':
-                      return <div className="max-w-[50%]">
-                        {/* {content.persona_quote_loop.map( persona_quote =>
-                          <div className="py-3 flex items-center odd:flex-row even:flex-row-reverse max-w-[50%]">
+                      return <div className="max-w-md">
+                        {content.persona_quote_loop.map( persona_quote =>
+                          <div className="py-3 flex items-center odd:flex-row even:flex-row-reverse">
                             {persona_quote.pq_image &&
                               <figure className="persona-image rounded-2xl max-h-42 w-3/12 overflow-hidden mb-4 mt-0" dangerouslySetInnerHTML={fieldImage(persona_quote.pq_image)} loading="lazy"></figure>
                             }
                             <div className="pl-5 max-w-md" dangerouslySetInnerHTML={{__html: persona_quote.pq_content}}></div>
                           </div>
-                         )} */}
+                         )}
                       </div>;
                     case 'blockquote_small_layout':
                       return ;
